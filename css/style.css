@@ -627,7 +627,13 @@ a { color: inherit; text-decoration: none; }
     color: var(--ink);
   }
 
-  .hero { padding: 110px 20px 130px; }
+  .hero { padding: 110px 16px 130px; }
+  /* keep the wordmark on a single line on phones */
+  .hero h1 {
+    white-space: nowrap;
+    font-size: clamp(18px, 5.4vw, 34px);
+    letter-spacing: 0.22em;
+  }
   .feature-tiles { grid-template-columns: 1fr; }
   .tile { min-height: 420px; }
   .article-grid, .collection-grid { grid-template-columns: 1fr; }
