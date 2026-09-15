@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הסיפור שלנו — Nina et Michelle</title>
+  <meta name="description" content="Nina et Michelle — אמנות הבייסיק המושלם. הסיפור שלנו, הפילוסופיה שלנו, והדרך שבה אנחנו יוצרות.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=4">
+</head>
+<body>
+
+  <div class="topbar">משלוח חינם על כל הזמנה</div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <button class="menu-toggle" id="menuToggle" aria-label="פתיחת תפריט"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="shop.html">החנות</a></li>
+        <li><a href="collections.html">קולקציות</a></li>
+        <li><a href="about.html" class="active">אודות</a></li>
+        <li><a href="journal.html">ז'ורנל</a></li>
+      </ul>
+      <a href="index.html" class="logo">Nina et Michelle</a>
+      <ul class="nav-utils">
+        <li><a href="../about.html">English</a></li>
+        <li class="hide-mobile"><a href="#">חיפוש</a></li>
+        <li><a href="#">סל (<span id="cartCount">0</span>)</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="תפריט">
+    <button class="nav-close" id="navClose" aria-label="סגירת תפריט">✕</button>
+    <ul>
+      <li><a href="shop.html">החנות</a></li>
+      <li><a href="collections.html">קולקציות</a></li>
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="journal.html">ז'ורנל</a></li>
+      <li><a href="contact.html">יצירת קשר</a></li>
+      <li><a href="../about.html">English</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="about-hero">
+      <span class="label muted">הסיפור שלנו</span>
+      <h1>אנחנו לא מעצבות לעונה.<br>אנחנו מעצבות לשנים שבין לבין.</h1>
+    </section>
+
+    <section class="container about-split">
+      <div class="a-img"><img src="../images/atelier-wall.jpg" alt="סקיצות ודוגמיות בד על קיר הסטודיו"></div>
+      <div>
+        <h2>אמנות הבייסיק המושלם</h2>
+        <p>Nina et Michelle נולדה מרעיון פשוט: הפריטים שלובשים כל יום ראויים להכי הרבה תשומת לב — לא להכי מעט.</p>
+        <p>מהסקיצה הראשונה ועד התפר האחרון, כל פרט נבחן. אנחנו לוקחות את הזמן לבחור בדים, ללטש גזרות, וליצור בגדים שפשוט קל ללבוש.</p>
+        <p>אנחנו לא מאמינות בעיצוב־יתר. אנחנו מאמינות בתפירה מוקפדת, בפרופורציות על־זמניות, ובאיכות שמדברת בעד עצמה.</p>
+        <a href="journal-atelier.html" class="link-cta">בתוך הסטודיו <span class="arrow">&#10229;</span></a>
+      </div>
+    </section>
+
+    <section class="container about-split" id="care">
+      <div>
+        <h2>בדים וטיפוח</h2>
+        <p>כל קולקציה מתחילה בבחירה מדויקת של בד. אנחנו בוחרות חומרים לפי המרקם, המשקל, והאופן שבו הם נעים באופן טבעי עם הגוף.</p>
+        <p>יוקרה אמיתית נמצאת בפשטות — ברכּוּת של סיבים טבעיים, בגימור מעודן, ובפריטים שנועדו להפוך לחלק מחיי היומיום. בטיפול עדין, הם רק משתבחים עם הזמן.</p>
+        <a href="journal-natural-fabrics.html" class="link-cta">היופי שבבדים טבעיים <span class="arrow">&#10229;</span></a>
+      </div>
+      <div class="a-img"><img src="../images/fabric.jpg" alt="בד טבעי שנבחר לקולקציה"></div>
+    </section>
+
+    <section class="quote-band">
+      <blockquote>"כל קולקציה נושאת חתיכה קטנה מפריז — וחתיכה קטנה מאיתנו."</blockquote>
+      <p class="sig">נינה ומישל</p>
+    </section>
+
+    <section class="newsletter">
+      <h2>הישארו קרובות</h2>
+      <p>קולקציות חדשות, כתבות מהז'ורנל והשראה שקטה — מדי פעם, ורק כשבאמת יש מה לספר.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="כתובת האימייל שלך" required aria-label="אימייל">
+        <button type="submit">הרשמה</button>
+      </form>
+      <p class="form-note">אפשר להסיר את ההרשמה בכל עת.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border-top:none;">
+      <span style="margin-inline:auto; letter-spacing:0.3em;">Nina et Michelle</span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

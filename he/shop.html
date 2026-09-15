@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>החנות — Nina et Michelle</title>
+  <meta name="description" content="החנות של Nina et Michelle — פריטי בסיס על־זמניים מבדים טבעיים.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=4">
+</head>
+<body>
+
+  <div class="topbar">משלוח חינם על כל הזמנה</div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <button class="menu-toggle" id="menuToggle" aria-label="פתיחת תפריט"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="shop.html" class="active">החנות</a></li>
+        <li><a href="collections.html">קולקציות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="journal.html">ז'ורנל</a></li>
+      </ul>
+      <a href="index.html" class="logo">Nina et Michelle</a>
+      <ul class="nav-utils">
+        <li><a href="../shop.html">English</a></li>
+        <li class="hide-mobile"><a href="#">חיפוש</a></li>
+        <li><a href="#">סל (<span id="cartCount">0</span>)</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="תפריט">
+    <button class="nav-close" id="navClose" aria-label="סגירת תפריט">✕</button>
+    <ul>
+      <li><a href="shop.html">החנות</a></li>
+      <li><a href="collections.html">קולקציות</a></li>
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="journal.html">ז'ורנל</a></li>
+      <li><a href="contact.html">יצירת קשר</a></li>
+      <li><a href="../shop.html">English</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <div class="page-intro">
+      <div>
+        <h1>החנות</h1>
+        <p class="intro-sub">פריטי בסיס על־זמניים, שנועדו לחיות בהם.</p>
+      </div>
+      <nav class="filter-tabs" aria-label="קטגוריות">
+        <a href="#" class="active">הכל</a>
+        <a href="#tops">חלקים עליונים</a>
+        <a href="#bottoms">חלקים תחתונים</a>
+        <a href="#sets">סטים</a>
+      </nav>
+    </div>
+
+    <div class="product-grid">
+      <a href="#" class="product-card" id="tops">
+        <div class="p-img p-tone-1"><span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span><span class="p-flag">חדש</span></div>
+        <h3>טי־שירט הבסיס — שנהב</h3>
+        <p class="p-price">₪180</p>
+      </a>
+      <a href="#" class="product-card">
+        <div class="p-img p-tone-2"><span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span></div>
+        <h3>טי־שירט הבסיס — שחור</h3>
+        <p class="p-price">₪180</p>
+      </a>
+      <a href="#" class="product-card">
+        <div class="p-img p-tone-3"><img src="../images/tanks.jpg" alt="גופיית הריב"><span class="p-flag">חדש</span></div>
+        <h3>גופיית הריב</h3>
+        <p class="p-price">₪160</p>
+      </a>
+      <a href="#" class="product-card">
+        <div class="p-img p-tone-4"><span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span></div>
+        <h3>חולצה בנגיעת משי</h3>
+        <p class="p-price">₪340</p>
+      </a>
+      <a href="#" class="product-card" id="bottoms">
+        <div class="p-img p-tone-2"><span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span></div>
+        <h3>מכנס בגזרה נינוחה</h3>
+        <p class="p-price">₪320</p>
+      </a>
+      <a href="#" class="product-card">
+        <div class="p-img p-tone-4"><span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span></div>
+        <h3>מכנס רחב</h3>
+        <p class="p-price">₪340</p>
+      </a>
+      <a href="#" class="product-card">
+        <div class="p-img p-tone-1"><span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span></div>
+        <h3>חצאית מידי</h3>
+        <p class="p-price">₪290</p>
+      </a>
+      <a href="#" class="product-card" id="sets">
+        <div class="p-img p-tone-3"><img src="../images/new-collection.jpg" alt="סט היומיום"><span class="p-flag">סט</span></div>
+        <h3>סט היומיום</h3>
+        <p class="p-price">₪480</p>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border-top:none;">
+      <span style="margin-inline:auto; letter-spacing:0.3em;">Nina et Michelle</span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

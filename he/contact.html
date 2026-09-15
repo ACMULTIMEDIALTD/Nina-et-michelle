@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יצירת קשר — Nina et Michelle</title>
+  <meta name="description" content="יצירת קשר עם Nina et Michelle — משלוחים, החזרות וכל שאלה אחרת.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=4">
+</head>
+<body>
+
+  <div class="topbar">משלוח חינם על כל הזמנה</div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <button class="menu-toggle" id="menuToggle" aria-label="פתיחת תפריט"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="shop.html">החנות</a></li>
+        <li><a href="collections.html">קולקציות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="journal.html">ז'ורנל</a></li>
+      </ul>
+      <a href="index.html" class="logo">Nina et Michelle</a>
+      <ul class="nav-utils">
+        <li><a href="../contact.html">English</a></li>
+        <li class="hide-mobile"><a href="#">חיפוש</a></li>
+        <li><a href="#">סל (<span id="cartCount">0</span>)</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="תפריט">
+    <button class="nav-close" id="navClose" aria-label="סגירת תפריט">✕</button>
+    <ul>
+      <li><a href="shop.html">החנות</a></li>
+      <li><a href="collections.html">קולקציות</a></li>
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="journal.html">ז'ורנל</a></li>
+      <li><a href="contact.html">יצירת קשר</a></li>
+      <li><a href="../contact.html">English</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <div class="page-intro">
+      <div>
+        <h1>יצירת קשר</h1>
+        <p class="intro-sub">שאלה על הזמנה, על בד או על מידה — אנחנו כאן.</p>
+      </div>
+    </div>
+
+    <div class="contact-layout">
+      <div>
+        <div class="contact-block">
+          <h3>אימייל</h3>
+          <p><a href="mailto:contact@ninaetmichelle.com">contact@ninaetmichelle.com</a></p>
+        </div>
+        <div class="contact-block">
+          <h3>משלוחים</h3>
+          <p>משלוח חינם על כל הזמנה. אספקה עד 5 ימי עסקים, ועד 10 ימי עסקים לאזורים מרוחקים. <a href="shipping-returns.html" style="border-bottom:1px solid currentColor;">לפרטים המלאים</a></p>
+        </div>
+        <div class="contact-block">
+          <h3>החזרות</h3>
+          <p>החזרה או החלפה בקלות עד 30 יום, במצב מקורי. <a href="shipping-returns.html#returns" style="border-bottom:1px solid currentColor;">למדיניות המלאה</a></p>
+        </div>
+        <div class="contact-block">
+          <h3>עקבו</h3>
+          <p><a href="#" style="border-bottom:1px solid currentColor;">אינסטגרם</a></p>
+        </div>
+      </div>
+
+      <form id="contactForm">
+        <div class="form-row">
+          <label for="cf-name">שם</label>
+          <input type="text" id="cf-name" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-email">אימייל</label>
+          <input type="email" id="cf-email" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-msg">הודעה</label>
+          <textarea id="cf-msg" required></textarea>
+        </div>
+        <button type="submit" class="link-cta" style="background:none;border-top:none;border-inline:none;cursor:pointer;">שליחת הודעה <span class="arrow">&#10229;</span></button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border-top:none;">
+      <span style="margin-inline:auto; letter-spacing:0.3em;">Nina et Michelle</span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -662,3 +662,34 @@ a { color: inherit; text-decoration: none; }
   .footer-grid a { font-size: 12.5px; }
   .footer-grid h5 { margin-bottom: 12px; }
 }
+
+/* ---------- Hebrew (RTL) ---------- */
+html[lang="he"] body { font-family: 'Frank Ruhl Libre', 'EB Garamond', serif; }
+html[lang="he"] .topbar,
+html[lang="he"] .label,
+html[lang="he"] .nav-links a,
+html[lang="he"] .nav-utils a,
+html[lang="he"] .link-cta,
+html[lang="he"] .filter-tabs a,
+html[lang="he"] .j-card h3,
+html[lang="he"] .j-card .j-date,
+html[lang="he"] .footer-grid h5,
+html[lang="he"] .footer-bottom,
+html[lang="he"] .p-flag,
+html[lang="he"] .opt-label,
+html[lang="he"] .form-row label,
+html[lang="he"] .mobile-nav a,
+html[lang="he"] .newsletter-form button,
+html[lang="he"] .collection-card .c-label h3,
+html[lang="he"] .collection-card .c-label span {
+  font-family: 'Assistant', sans-serif;
+  letter-spacing: 0.08em;
+}
+html[lang="he"] .logo,
+html[lang="he"] .hero h1 { font-family: 'EB Garamond', serif; }
+html[lang="he"] .tagline,
+html[lang="he"] .standfirst,
+html[lang="he"] .closing,
+html[lang="he"] .quote-band blockquote { font-style: normal; }
+html[lang="he"] .contact-block h3 { font-family: 'Assistant', sans-serif; letter-spacing: 0.08em; }
+html[lang="he"] .tile-content { margin-inline-start: auto; }
