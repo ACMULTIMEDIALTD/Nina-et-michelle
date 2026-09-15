@@ -630,17 +630,29 @@ a { color: inherit; text-decoration: none; }
   .hero { padding: 110px 20px 130px; }
   .feature-tiles { grid-template-columns: 1fr; }
   .tile { min-height: 420px; }
-  .journal-cards, .article-grid, .collection-grid { grid-template-columns: 1fr; }
+  .article-grid, .collection-grid { grid-template-columns: 1fr; }
   .feature-article { grid-template-columns: 1fr; gap: 30px; }
   .feature-article.reverse .fa-media { order: 0; }
   .product-grid { grid-template-columns: 1fr 1fr; }
   .about-split, .contact-layout { grid-template-columns: 1fr; gap: 44px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-bottom { justify-content: center; text-align: center; }
+
+  /* keep the mockup's three-across journal strip on phones */
+  .journal-cards { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .j-card .j-img { margin-bottom: 12px; }
+  .j-card h3 { font-size: 10px; letter-spacing: 0.14em; margin-bottom: 6px; }
+  .j-card .j-date { font-size: 9px; letter-spacing: 0.14em; }
 }
 
 @media (max-width: 520px) {
-  .product-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
   .page-intro { padding: 52px 0 40px; }
+  .product-grid { gap: 20px 14px; }
+  .product-card h3 { font-size: 14.5px; }
+  .product-card .p-price { font-size: 13px; }
+  /* footer keeps its column layout, brand spanning the top */
+  .footer-grid { gap: 26px 20px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-grid a { font-size: 12.5px; }
+  .footer-grid h5 { margin-bottom: 12px; }
 }
