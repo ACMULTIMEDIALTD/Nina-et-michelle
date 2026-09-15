@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "hero": { "type": "hero" },
+    "tiles": { "type": "feature-tiles", "blocks": { "t1": { "type": "tile" }, "t2": { "type": "tile" } }, "block_order": ["t1", "t2"] },
+    "journal": { "type": "journal-strip" }
+  },
+  "order": ["hero", "tiles", "journal"]
+}

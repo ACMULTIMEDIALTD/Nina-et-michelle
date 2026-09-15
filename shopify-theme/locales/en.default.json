@@ -1,0 +1,10 @@
+{
+  "general": {
+    "meta": {
+      "page": "Page {{ page }}"
+    },
+    "404": {
+      "title": "Page Not Found"
+    }
+  }
+}

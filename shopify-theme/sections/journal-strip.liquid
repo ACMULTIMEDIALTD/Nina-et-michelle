@@ -1,0 +1,30 @@
+{% assign journal = blogs[section.settings.blog] %}
+<section class="journal-strip">
+  <div class="container">
+    <div class="strip-head">
+      <span class="label">Journal</span>
+      {% if journal %}<a href="{{ journal.url }}" class="link-cta" style="padding-bottom:6px;">View All <span class="arrow">&#10230;</span></a>{% endif %}
+    </div>
+    <div class="journal-cards">
+      {% if journal %}
+        {% for article in journal.articles limit: 3 %}
+          <a href="{{ article.url }}" class="j-card">
+            <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
+            <h3>{{ article.title }}</h3>
+            <p class="j-date">{{ article.published_at | date: '%b %-d, %Y' }}</p>
+          </a>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Journal strip",
+  "settings": [
+    { "type": "blog", "id": "blog", "label": "Blog" }
+  ],
+  "presets": [{ "name": "Journal strip" }]
+}
+{% endschema %}

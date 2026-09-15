@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="page-intro">
+    <div>
+      <h1>{{ collection.title }}</h1>
+      {% if collection.description != blank %}<p class="intro-sub">{{ collection.description | strip_html }}</p>{% endif %}
+    </div>
+    <nav class="filter-tabs" aria-label="Collections">
+      <a href="{{ routes.all_products_collection_url }}" {% if collection.handle == 'all' %}class="active"{% endif %}>All</a>
+      {% for c in collections %}
+        {% unless c.handle == 'all' or c.handle == 'frontpage' %}
+          <a href="{{ c.url }}" {% if c.handle == collection.handle %}class="active"{% endif %}>{{ c.title }}</a>
+        {% endunless %}
+      {% endfor %}
+    </nav>
+  </div>
+
+  {% paginate collection.products by 12 %}
+    <div class="product-grid">
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% else %}
+        <p style="grid-column:1/-1; text-align:center; color:#8b867c;">No products here yet.</p>
+      {% endfor %}
+    </div>
+    {% if paginate.pages > 1 %}
+      <div style="text-align:center; padding-bottom:80px;">
+        {% if paginate.previous %}<a class="link-cta" href="{{ paginate.previous.url }}">&#10229; Previous</a>{% endif %}
+        {% if paginate.next %}<a class="link-cta" href="{{ paginate.next.url }}" style="margin-inline-start:30px;">Next <span class="arrow">&#10230;</span></a>{% endif %}
+      </div>
+    {% endif %}
+  {% endpaginate %}
+</div>
+
+{% schema %}
+{ "name": "Collection", "settings": [] }
+{% endschema %}

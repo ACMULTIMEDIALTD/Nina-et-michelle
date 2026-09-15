@@ -1,0 +1,23 @@
+<a href="{{ product.url }}" class="product-card">
+  <div class="p-img p-tone-1">
+    {% if product.featured_image %}
+      {{ product.featured_image | image_url: width: 800 | image_tag: alt: product.featured_image.alt | default: product.title }}
+    {% else %}
+      <span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span>
+    {% endif %}
+    {% unless product.available %}
+      <span class="p-flag">Sold Out</span>
+    {% else %}
+      {% if product.compare_at_price > product.price %}
+        <span class="p-flag">Sale</span>
+      {% endif %}
+    {% endunless %}
+  </div>
+  <h3>{{ product.title }}</h3>
+  <p class="p-price">
+    {{ product.price | money }}
+    {% if product.compare_at_price > product.price %}
+      <span class="old">{{ product.compare_at_price | money }}</span>
+    {% endif %}
+  </p>
+</a>

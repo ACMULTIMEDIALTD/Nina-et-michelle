@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="page-intro">
+    <div>
+      <h1>Your Cart</h1>
+      {% if cart.item_count == 0 %}<p class="intro-sub">Your cart is empty — <a href="{{ routes.all_products_collection_url }}" style="border-bottom:1px solid currentColor;">continue shopping</a>.</p>{% endif %}
+    </div>
+  </div>
+
+  {% if cart.item_count > 0 %}
+    <form action="{{ routes.cart_url }}" method="post" style="padding-bottom:100px;">
+      <div style="border-top:1px solid var(--hairline);">
+        {% for item in cart.items %}
+          <div style="display:grid; grid-template-columns:90px 1fr auto; gap:20px; align-items:center; padding:22px 0; border-bottom:1px solid var(--hairline);">
+            <a href="{{ item.url }}">
+              {% if item.image %}{{ item.image | image_url: width: 200 | image_tag: alt: item.title }}{% endif %}
+            </a>
+            <div>
+              <p style="font-size:18px;">{{ item.product.title }}</p>
+              {% unless item.product.has_only_default_variant %}<p style="font-size:13px; color:var(--muted); letter-spacing:0.08em;">{{ item.variant.title }}</p>{% endunless %}
+              <div class="qty" style="margin-top:10px; display:inline-flex;">
+                <button type="button" data-line="{{ forloop.index }}" data-change="-1" aria-label="Decrease">–</button>
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity" style="height:40px;">
+                <button type="button" data-line="{{ forloop.index }}" data-change="1" aria-label="Increase">+</button>
+              </div>
+            </div>
+            <p style="font-size:17px;">{{ item.final_line_price | money }}</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:30px; flex-wrap:wrap; gap:20px;">
+        <button type="submit" name="update" class="link-cta" style="background:none;border-top:none;border-inline:none;cursor:pointer;">Update Cart</button>
+        <div style="text-align:end;">
+          <p style="font-size:22px; margin-bottom:6px;">Subtotal: {{ cart.total_price | money }}</p>
+          <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">Complimentary shipping · taxes calculated at checkout</p>
+          <button type="submit" name="checkout" class="btn btn-dark">Checkout</button>
+        </div>
+      </div>
+    </form>
+  {% endif %}
+</div>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

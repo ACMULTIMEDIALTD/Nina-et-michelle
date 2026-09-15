@@ -1,0 +1,81 @@
+<div class="container" style="padding-top:56px;">
+  <div class="product-layout" style="padding-bottom:100px;">
+    <div class="product-gallery">
+      {% if product.featured_image %}
+        <div class="img-ph main" style="background:none;">
+          {{ product.featured_image | image_url: width: 1200 | image_tag: alt: product.featured_image.alt | default: product.title, id: 'MainImage' }}
+        </div>
+      {% else %}
+        <div class="img-ph main"><div><span class="ph-mark">N·M</span></div></div>
+      {% endif %}
+      {% if product.images.size > 1 %}
+        <div class="thumbs">
+          {% for image in product.images limit: 4 %}
+            <div class="img-ph" style="background:none;">
+              {{ image | image_url: width: 300 | image_tag: alt: image.alt | default: product.title, class: 'thumb-img', data-full: image | image_url: width: 1200 }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="product-info">
+      <h1>{{ product.title }}</h1>
+      {% if product.type != blank %}<p class="p-cat">{{ product.type | upcase }}</p>{% endif %}
+      <p class="price" id="ProductPrice">
+        {{ product.selected_or_first_available_variant.price | money }}
+        {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+          <span class="old">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+        {% endif %}
+      </p>
+      <div class="desc">{{ product.description }}</div>
+
+      {% form 'product', product %}
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            <p class="opt-label">{{ option.name | upcase }}</p>
+            <div class="size-row" style="flex-wrap:wrap;">
+              {% for value in option.values %}
+                <label class="size-btn" style="display:grid;place-items:center;width:auto;min-width:46px;padding:0 14px;cursor:pointer;">
+                  <input type="radio" name="option-{{ option.position }}" value="{{ value | escape }}"
+                    {% if option.selected_value == value %}checked{% endif %}
+                    style="position:absolute;opacity:0;pointer-events:none;">
+                  {{ value }}
+                </label>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        {% endunless %}
+
+        <input type="hidden" name="id" id="VariantId" value="{{ product.selected_or_first_available_variant.id }}">
+        <script type="application/json" id="VariantData">{{ product.variants | json }}</script>
+
+        <div class="add-row">
+          <div class="qty">
+            <button type="button" data-qty="-1" aria-label="Decrease quantity">–</button>
+            <input type="number" name="quantity" id="Qty" value="1" min="1" aria-label="Quantity">
+            <button type="button" data-qty="1" aria-label="Increase quantity">+</button>
+          </div>
+          <button type="submit" class="btn btn-dark" id="AddToCart" {% unless product.available %}disabled{% endunless %} style="flex:1;">
+            {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+          </button>
+        </div>
+      {% endform %}
+
+      <div class="accordion">
+        <details class="acc-item">
+          <summary>Shipping</summary>
+          <p>Complimentary shipping on all orders. Delivery within 5 business days, and up to 10 business days for remote areas.</p>
+        </details>
+        <details class="acc-item">
+          <summary>Returns</summary>
+          <p>Easy returns and exchanges within 30 days, in original condition with tags attached.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Product", "settings": [] }
+{% endschema %}

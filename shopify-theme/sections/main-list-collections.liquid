@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="page-intro">
+    <div>
+      <h1>Collections</h1>
+      <p class="intro-sub">Quiet edits of everyday essentials.</p>
+    </div>
+  </div>
+
+  <div class="collection-grid">
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        <a href="{{ collection.url }}" class="collection-card">
+          <div class="c-img p-tone-1" style="{% if collection.featured_image %}background:none;{% endif %}">
+            {% if collection.featured_image %}
+              {{ collection.featured_image | image_url: width: 800 | image_tag: alt: collection.title }}
+            {% else %}
+              <span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span>
+            {% endif %}
+          </div>
+          <div class="c-label">
+            <h3>{{ collection.title }}</h3>
+            <span>Explore</span>
+          </div>
+        </a>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

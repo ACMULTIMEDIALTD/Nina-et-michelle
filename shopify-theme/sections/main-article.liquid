@@ -1,0 +1,28 @@
+<article>
+  <header class="article-hero">
+    <div class="ah-meta">
+      {% if article.tags.size > 0 %}<span class="label muted">{{ article.tags.first }}</span>{% endif %}
+      <span class="label muted">{{ article.published_at | date: '%B %-d, %Y' }}</span>
+    </div>
+    <h1>{{ article.title }}</h1>
+    {% if article.excerpt != blank %}<p class="standfirst">{{ article.excerpt | strip_html }}</p>{% endif %}
+  </header>
+
+  {% if article.image %}
+    <div class="article-media">
+      {{ article.image | image_url: width: 1600 | image_tag: alt: article.title }}
+    </div>
+  {% endif %}
+
+  <div class="article-body">
+    {{ article.content }}
+  </div>
+
+  <footer class="article-footer">
+    <a href="{{ blog.url }}" class="link-cta">&#10229; Back to {{ blog.title }}</a>
+  </footer>
+</article>
+
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

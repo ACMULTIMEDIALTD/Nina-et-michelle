@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }}{% unless page_title contains shop.name %} — {{ shop.name }}{% endunless %}</title>
+  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+</head>
+<body>
+
+  <div class="topbar">{{ settings.announcement_text | default: 'Complimentary shipping on all orders' }}</div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+        <li><a href="{{ routes.collections_url }}">Collections</a></li>
+        <li><a href="/pages/about">About</a></li>
+        <li><a href="{{ blog.url | default: '/blogs/journal' }}">Journal</a></li>
+      </ul>
+      <a href="{{ routes.root_url }}" class="logo">{{ shop.name }}</a>
+      <ul class="nav-utils">
+        <li class="hide-mobile"><a href="{{ routes.search_url }}">Search</a></li>
+        <li class="hide-mobile"><a href="{{ routes.account_url }}">Account</a></li>
+        <li><a href="{{ routes.cart_url }}">Cart (<span id="cartCount">{{ cart.item_count }}</span>)</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+      <li><a href="{{ routes.collections_url }}">Collections</a></li>
+      <li><a href="/pages/about">About</a></li>
+      <li><a href="/blogs/journal">Journal</a></li>
+      <li><a href="/pages/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    {{ content_for_layout }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo">{{ shop.name }}</div>
+        <p>© {{ 'now' | date: '%Y' }} All rights reserved</p>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="{{ routes.all_products_collection_url }}">All Products</a></li>
+          <li><a href="/collections/tops">Tops</a></li>
+          <li><a href="/collections/bottoms">Bottoms</a></li>
+          <li><a href="/collections/sets">Sets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>About</h5>
+        <ul>
+          <li><a href="/pages/about">Our Story</a></li>
+          <li><a href="/blogs/journal">Journal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="/pages/shipping-returns">Shipping</a></li>
+          <li><a href="/pages/shipping-returns">Returns</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Follow</h5>
+        <ul>
+          {% if settings.instagram_url != blank %}<li><a href="{{ settings.instagram_url }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
+          <li><a href="mailto:{{ shop.email }}">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>{{ shop.name }}</span>
+      <nav>
+        <a href="/pages/terms">Terms &amp; Conditions</a>
+        <a href="/pages/privacy">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+
+  {{ 'theme.js' | asset_url | script_tag }}
+</body>
+</html>

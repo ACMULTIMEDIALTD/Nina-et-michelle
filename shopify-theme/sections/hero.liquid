@@ -1,0 +1,19 @@
+<section class="hero">
+  <h1>{{ section.settings.heading | default: shop.name }}</h1>
+  <div class="rule"></div>
+  <p class="tagline">{{ section.settings.tagline }}</p>
+  <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="link-cta">{{ section.settings.button_label }} <span class="arrow">&#10230;</span></a>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Nina et Michelle" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "The Fine Art of Basics" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Collection" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}
