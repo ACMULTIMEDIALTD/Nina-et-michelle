@@ -694,3 +694,9 @@ html[lang="he"] .closing,
 html[lang="he"] .quote-band blockquote { font-style: normal; }
 html[lang="he"] .contact-block h3 { font-family: 'Assistant', sans-serif; letter-spacing: 0.08em; }
 html[lang="he"] .tile-content { margin-inline-start: auto; }
+
+/* ---------- Size guide table ---------- */
+.size-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 16px; }
+.size-table th, .size-table td { border: 1px solid var(--hairline); padding: 12px 14px; text-align: center; }
+.size-table th { background: #fff; font-weight: 500; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+html[lang="he"] .size-table th { font-family: 'Assistant', sans-serif; }

@@ -14,7 +14,7 @@
         "type": "text",
         "id": "announcement_text",
         "label": "Announcement bar text",
-        "default": "Complimentary shipping on all orders"
+        "default": "Complimentary shipping on orders over ₪500"
       },
       {
         "type": "url",
