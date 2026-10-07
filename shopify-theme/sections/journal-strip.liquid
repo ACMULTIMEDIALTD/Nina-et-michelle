@@ -1,4 +1,7 @@
 {% assign journal = blogs[section.settings.blog] %}
+{% if journal == blank or journal.articles_count == 0 %}
+  {% assign journal = blogs['journal'] %}
+{% endif %}
 <section class="journal-strip">
   <div class="container">
     <div class="strip-head">

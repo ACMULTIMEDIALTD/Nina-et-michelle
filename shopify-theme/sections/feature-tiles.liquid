@@ -1,9 +1,15 @@
 <section class="feature-tiles">
   {% for block in section.blocks %}
-    <a href="{{ block.settings.link }}" class="tile light" {{ block.shopify_attributes }}>
+    <a href="{{ block.settings.link | default: routes.all_products_collection_url }}" class="tile light" {{ block.shopify_attributes }}>
       <div class="tile-ph"></div>
       {% if block.settings.image %}
         {{ block.settings.image | image_url: width: 1600 | image_tag: alt: block.settings.heading, class: '' }}
+      {% else %}
+        {% if forloop.first %}
+          <img src="https://acmultimedialtd.github.io/Nina-et-michelle/images/new-collection.jpg" alt="{{ block.settings.heading | strip_html }}" loading="lazy">
+        {% else %}
+          <img src="https://acmultimedialtd.github.io/Nina-et-michelle/images/fabric.jpg" alt="{{ block.settings.heading | strip_html }}" loading="lazy">
+        {% endif %}
       {% endif %}
       <div class="tile-content">
         <span class="label">{{ block.settings.label }}</span>
