@@ -1,8 +1,14 @@
 <div class="container">
   <div class="page-intro">
     <div>
-      <h1>{{ collection.title }}</h1>
-      {% if collection.description != blank %}<p class="intro-sub">{{ collection.description | strip_html }}</p>{% endif %}
+      {% if collection.handle == 'all' %}
+        <h1>Shop</h1>
+        <p class="intro-sub">Timeless essentials, designed to be lived in.</p>
+        <p style="margin-top:14px;"><a href="/pages/size-guide" class="link-cta">Size Guide <span class="arrow">&#10230;</span></a></p>
+      {% else %}
+        <h1>{{ collection.title }}</h1>
+        {% if collection.description != blank %}<p class="intro-sub">{{ collection.description | strip_html }}</p>{% endif %}
+      {% endif %}
     </div>
     <nav class="filter-tabs" aria-label="Collections">
       <a href="{{ routes.all_products_collection_url }}" {% if collection.handle == 'all' %}class="active"{% endif %}>All</a>

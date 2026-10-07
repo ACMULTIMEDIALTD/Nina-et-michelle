@@ -4,11 +4,17 @@
       <h1>{{ blog.title }}</h1>
       <p class="intro-sub">A journal of inspiration, our process, and the beauty of everyday essentials.</p>
     </div>
+    <nav class="filter-tabs" aria-label="Journal categories">
+      <a href="{{ blog.url }}" {% unless current_tags %}class="active"{% endunless %}>All</a>
+      {% for tag in blog.all_tags %}
+        <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}class="active"{% endif %}>{{ tag }}</a>
+      {% endfor %}
+    </nav>
   </div>
 
   {% paginate blog.articles by 9 %}
-    {% for article in blog.articles %}
-      <article class="feature-article{% cycle '', ' reverse' %}">
+    {% for article in blog.articles limit: 3 %}
+      <article class="feature-article{% cycle '', ' reverse', '' %}">
         <a class="fa-media" href="{{ article.url }}">
           {% if article.image %}{{ article.image | image_url: width: 1200 | image_tag: alt: article.title }}{% endif %}
         </a>
@@ -23,6 +29,22 @@
         </div>
       </article>
     {% endfor %}
+
+    {% if blog.articles.size > 3 %}
+      <div class="article-grid">
+        {% for article in blog.articles offset: 3 %}
+          <a href="{{ article.url }}" class="ag-card">
+            <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
+            <div class="ag-meta">
+              {% if article.tags.size > 0 %}<span class="label muted">{{ article.tags.first }}</span>{% endif %}
+              <span class="label muted">{{ article.published_at | date: '%B %-d, %Y' }}</span>
+            </div>
+            <h3>{{ article.title }}</h3>
+            <span class="link-cta">Read More <span class="arrow">&#10230;</span></span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
 
     {% if paginate.pages > 1 %}
       <div style="text-align:center; padding-bottom:80px;">

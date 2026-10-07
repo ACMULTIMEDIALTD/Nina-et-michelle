@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="page-intro">
+    <div>
+      <h1>Contact</h1>
+      <p class="intro-sub">A question about an order, a fabric, or a fit &mdash; we&rsquo;re here.</p>
+    </div>
+  </div>
+
+  <div class="contact-layout">
+    <div>
+      <div class="contact-block">
+        <h3>Email</h3>
+        <p><a href="mailto:contact@ninaetmichelle.com">contact@ninaetmichelle.com</a></p>
+      </div>
+      <div class="contact-block">
+        <h3>WhatsApp</h3>
+        <p>Customer service: <a href="https://wa.me/972506995056" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor;">050-699-5056</a></p>
+      </div>
+      <div class="contact-block">
+        <h3>Shipping</h3>
+        <p>Complimentary shipping on orders over &#8362;500. Delivery within 5 business days, up to 10 for remote areas, or self pickup in Rehovot within 2 business days. <a href="/pages/shipping-returns" style="border-bottom:1px solid currentColor;">Full details</a></p>
+      </div>
+      <div class="contact-block">
+        <h3>Returns</h3>
+        <p>Easy returns and exchanges within 14 days, in original condition. <a href="/pages/shipping-returns" style="border-bottom:1px solid currentColor;">Read our policy</a></p>
+      </div>
+    </div>
+
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+        <p style="font-style:italic;">Merci &mdash; your message has been received. We&rsquo;ll be in touch shortly.</p>
+      {% else %}
+        {% if form.errors %}
+          <p style="color:#9a3b3b; margin-bottom:20px;">Please check the highlighted fields and try again.</p>
+        {% endif %}
+        <div class="form-row">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="contact[name]" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="contact[email]" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="contact[body]" required></textarea>
+        </div>
+        <button type="submit" class="link-cta" style="background:none;border-top:none;border-inline:none;cursor:pointer;">Send Message <span class="arrow">&#10230;</span></button>
+      {% endif %}
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Contact", "settings": [] }
+{% endschema %}
