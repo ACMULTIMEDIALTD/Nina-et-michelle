@@ -20,6 +20,12 @@
         "type": "url",
         "id": "instagram_url",
         "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp number (international format, digits only)",
+        "default": "972506995056"
       }
     ]
   }
