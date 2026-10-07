@@ -1,7 +1,30 @@
 {
   "sections": {
     "hero": { "type": "hero" },
-    "tiles": { "type": "feature-tiles", "blocks": { "t1": { "type": "tile" }, "t2": { "type": "tile" } }, "block_order": ["t1", "t2"] },
+    "tiles": {
+      "type": "feature-tiles",
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "label": "New Collection",
+            "heading": "Timeless pieces,<br>made to live in.",
+            "cta": "Discover Now",
+            "link": "/collections/all"
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "label": "Our Materials",
+            "heading": "Quality you can feel.<br>Designed to last.",
+            "cta": "Learn More",
+            "link": "/blogs/journal/the-beauty-of-natural-fabrics"
+          }
+        }
+      },
+      "block_order": ["t1", "t2"]
+    },
     "journal": { "type": "journal-strip" }
   },
   "order": ["hero", "tiles", "journal"]
