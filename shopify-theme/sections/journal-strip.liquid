@@ -9,15 +9,32 @@
       {% if journal %}<a href="{{ journal.url }}" class="link-cta" style="padding-bottom:6px;">View All <span class="arrow">&#10230;</span></a>{% endif %}
     </div>
     <div class="journal-cards">
-      {% if journal %}
-        {% for article in journal.articles limit: 3 %}
+      {% assign strip_handles = 'paris-always,the-beauty-of-natural-fabrics,inside-the-atelier' | split: ',' %}
+      {% assign strip_titles = 'A Day in Paris,The Beauty of Natural Fabrics,In the Studio' | split: ',' %}
+      {% assign found_any = false %}
+      {% for h in strip_handles %}
+        {% assign lookup = 'journal/' | append: h %}
+        {% assign article = articles[lookup] %}
+        {% if article and article.title != blank %}
+          {% assign found_any = true %}
           <a href="{{ article.url }}" class="j-card">
             <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
-            <h3>{{ article.title }}</h3>
+            <h3>{{ strip_titles[forloop.index0] }}</h3>
             <p class="j-date">{{ article.published_at | date: '%b %-d, %Y' }}</p>
           </a>
-        {% endfor %}
-      {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% unless found_any %}
+        {% if journal %}
+          {% for article in journal.articles limit: 3 %}
+            <a href="{{ article.url }}" class="j-card">
+              <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
+              <h3>{{ article.title }}</h3>
+              <p class="j-date">{{ article.published_at | date: '%b %-d, %Y' }}</p>
+            </a>
+          {% endfor %}
+        {% endif %}
+      {% endunless %}
     </div>
   </div>
 </section>

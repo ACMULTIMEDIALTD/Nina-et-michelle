@@ -18,8 +18,22 @@
     {{ article.content }}
   </div>
 
+  {% assign article_slug = article.handle | split: '/' | last %}
+  {% case article_slug %}
+    {% when 'inside-the-atelier' %}{% assign next_handle = 'the-beauty-of-natural-fabrics' %}{% assign next_title = 'The Beauty of Natural Fabrics' %}
+    {% when 'the-beauty-of-natural-fabrics' %}{% assign next_handle = 'paris-always' %}{% assign next_title = 'Paris, Always' %}
+    {% when 'paris-always' %}{% assign next_handle = 'inside-the-atelier' %}{% assign next_title = 'Inside the Atelier' %}
+    {% when 'designed-with-intention' %}{% assign next_handle = 'inside-the-atelier' %}{% assign next_title = 'Inside the Atelier' %}
+    {% when 'everyday-rituals' %}{% assign next_handle = 'designed-with-intention' %}{% assign next_title = 'Designed with Intention' %}
+    {% when 'the-details-matter' %}{% assign next_handle = 'everyday-rituals' %}{% assign next_title = 'Everyday Rituals' %}
+  {% endcase %}
   <footer class="article-footer">
     <a href="{{ blog.url }}" class="link-cta">&#10229; Back to {{ blog.title }}</a>
+    {% if next_handle %}
+      <a href="{{ blog.url }}/{{ next_handle }}" class="link-cta">Next: {{ next_title }} <span class="arrow">&#10230;</span></a>
+    {% elsif blog.next_article %}
+      <a href="{{ blog.next_article.url }}" class="link-cta">Next: {{ blog.next_article.title }} <span class="arrow">&#10230;</span></a>
+    {% endif %}
   </footer>
 </article>
 
