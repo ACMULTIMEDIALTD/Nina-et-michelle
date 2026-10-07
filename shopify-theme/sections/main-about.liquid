@@ -1,0 +1,45 @@
+<section class="about-hero">
+  <span class="label muted">Our Story</span>
+  <h1>We don&rsquo;t design for the season.<br>We design for the years in between.</h1>
+</section>
+
+<section class="container about-split">
+  <div class="a-img"><img src="https://acmultimedialtd.github.io/Nina-et-michelle/images/atelier-wall.jpg" alt="Sketches and fabric swatches pinned to the Nina et Michelle atelier wall" loading="lazy"></div>
+  <div>
+    <h2>The Fine Art of Basics</h2>
+    <p>Nina et Michelle was born from a simple idea: that the pieces you wear every day deserve the most care, not the least.</p>
+    <p>From the first sketch to the final stitch, every detail is considered. We take our time selecting fabrics, perfecting silhouettes, and creating garments that feel effortless to wear.</p>
+    <p>We don&rsquo;t believe in overdesign. We believe in thoughtful construction, timeless proportions, and quality that speaks without words.</p>
+    <a href="/blogs/journal/inside-the-atelier" class="link-cta">Inside the Atelier <span class="arrow">&#10230;</span></a>
+  </div>
+</section>
+
+<section class="container about-split" id="care">
+  <div>
+    <h2>Materials &amp; Care</h2>
+    <p>Every collection begins with a thoughtful choice of fabric. We select materials for their texture, weight, and the way they naturally move with the body.</p>
+    <p>True luxury is found in simplicity &mdash; in the softness of natural fibers, refined finishes, and pieces designed to become part of everyday life. Cared for gently, they only get better with time.</p>
+    <a href="/blogs/journal/the-beauty-of-natural-fabrics" class="link-cta">The Beauty of Natural Fabrics <span class="arrow">&#10230;</span></a>
+  </div>
+  <div class="a-img"><img src="https://acmultimedialtd.github.io/Nina-et-michelle/images/fabric.jpg" alt="Natural fabric selected for a Nina et Michelle collection" loading="lazy"></div>
+</section>
+
+<section class="quote-band">
+  <blockquote>&ldquo;Every collection carries a little piece of Paris&mdash;and a little piece of us.&rdquo;</blockquote>
+  <p class="sig">Nina &amp; Michelle</p>
+</section>
+
+<section class="newsletter">
+  <h2>Stay close</h2>
+  <p>New collections, journal entries and quiet inspiration &mdash; occasionally, and only when it matters.</p>
+  {% form 'customer', class: 'newsletter-form' %}
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="email" name="contact[email]" placeholder="Your email address" required aria-label="Email address">
+    <button type="submit">Subscribe</button>
+  {% endform %}
+  <p class="form-note">You can unsubscribe at any time.</p>
+</section>
+
+{% schema %}
+{ "name": "About", "settings": [] }
+{% endschema %}
