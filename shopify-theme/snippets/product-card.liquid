@@ -6,10 +6,10 @@
       <span class="p-ph-mark">N&nbsp;&middot;&nbsp;M</span>
     {% endif %}
     {% unless product.available %}
-      <span class="p-flag">Sold Out</span>
+      <span class="p-flag">{{ 'product.sold_out' | t }}</span>
     {% else %}
       {% if product.compare_at_price > product.price %}
-        <span class="p-flag">Sale</span>
+        <span class="p-flag">{{ 'product.sale' | t }}</span>
       {% endif %}
     {% endunless %}
   </div>

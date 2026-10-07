@@ -1,3 +1,4 @@
+{% assign is_he = false %}{% if request.locale.iso_code == 'he' %}{% assign is_he = true %}{% endif %}
 <section class="feature-tiles">
   {% for block in section.blocks %}
     <a href="{{ block.settings.link | default: routes.all_products_collection_url }}" class="tile light" {{ block.shopify_attributes }}>
@@ -12,9 +13,21 @@
         {% endif %}
       {% endif %}
       <div class="tile-content">
-        <span class="label">{{ block.settings.label }}</span>
-        <h2>{{ block.settings.heading }}</h2>
-        <span class="link-cta">{{ block.settings.cta }} <span class="arrow">&#10230;</span></span>
+        {% if is_he %}
+          {% if forloop.first %}
+            <span class="label">{{ 'home.tile1_label' | t }}</span>
+            <h2>{{ 'home.tile1_heading' | t }}</h2>
+            <span class="link-cta">{{ 'home.tile1_cta' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></span>
+          {% else %}
+            <span class="label">{{ 'home.tile2_label' | t }}</span>
+            <h2>{{ 'home.tile2_heading' | t }}</h2>
+            <span class="link-cta">{{ 'home.tile2_cta' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></span>
+          {% endif %}
+        {% else %}
+          <span class="label">{{ block.settings.label }}</span>
+          <h2>{{ block.settings.heading }}</h2>
+          <span class="link-cta">{{ block.settings.cta }} <span class="arrow">&#10230;</span></span>
+        {% endif %}
       </div>
     </a>
   {% endfor %}

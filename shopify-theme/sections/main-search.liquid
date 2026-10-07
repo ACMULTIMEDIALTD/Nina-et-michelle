@@ -1,15 +1,15 @@
 <div class="container">
   <div class="page-intro">
     <div>
-      <h1>Search</h1>
-      {% if search.performed %}<p class="intro-sub">{{ search.results_count }} results for “{{ search.terms }}”</p>{% endif %}
+      <h1>{{ 'search.title' | t }}</h1>
+      {% if search.performed %}<p class="intro-sub">{{ 'search.results_html' | t: count: search.results_count, terms: search.terms }}</p>{% endif %}
     </div>
   </div>
 
   <form action="{{ routes.search_url }}" method="get" style="max-width:480px; margin-bottom:60px;">
     <div class="newsletter-form" style="margin:0;">
-      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products" aria-label="Search">
-      <button type="submit">Search</button>
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.placeholder' | t }}" aria-label="{{ 'search.placeholder' | t }}">
+      <button type="submit">{{ 'search.button' | t }}</button>
     </div>
   </form>
 

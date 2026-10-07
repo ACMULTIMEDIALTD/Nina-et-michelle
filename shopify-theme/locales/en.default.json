@@ -1,10 +1,162 @@
 {
   "general": {
-    "meta": {
-      "page": "Page {{ page }}"
-    },
+    "meta": { "page": "Page {{ page }}" },
     "404": {
-      "title": "Page Not Found"
-    }
+      "title": "Page Not Found",
+      "text": "The page you're looking for doesn't exist.",
+      "back_home": "Back to Home"
+    },
+    "arrow": "⟶",
+    "arrow_back": "⟵",
+    "topbar": "Complimentary shipping on orders over ₪500",
+    "search": "Search",
+    "account": "Account",
+    "cart": "Cart",
+    "menu_open": "Open menu",
+    "menu_close": "Close menu",
+    "read_more": "Read More",
+    "view_all": "View All",
+    "next": "Next",
+    "previous": "Previous",
+    "explore": "Explore"
+  },
+  "nav": {
+    "shop": "Shop",
+    "collections": "Collections",
+    "about": "About",
+    "journal": "Journal",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "shop": "Shop",
+    "all_products": "All Products",
+    "tops": "Tops",
+    "bottoms": "Bottoms",
+    "sets": "Sets",
+    "about": "About",
+    "our_story": "Our Story",
+    "materials": "Materials",
+    "care": "Care",
+    "help": "Help",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "faq": "FAQ",
+    "size_guide": "Size Guide",
+    "follow": "Follow",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "accessibility": "Accessibility"
+  },
+  "home": {
+    "tagline": "The Fine Art of Basics",
+    "shop_collection": "Shop Collection",
+    "tile1_label": "New Collection",
+    "tile1_heading": "Timeless pieces,<br>made to live in.",
+    "tile1_cta": "Discover Now",
+    "tile2_label": "Our Materials",
+    "tile2_heading": "Quality you can feel.<br>Designed to last.",
+    "tile2_cta": "Learn More",
+    "journal_label": "Journal",
+    "card_paris": "A Day in Paris",
+    "card_fabrics": "The Beauty of Natural Fabrics",
+    "card_atelier": "In the Studio"
+  },
+  "shop": {
+    "title": "Shop",
+    "subtitle": "Timeless essentials, designed to be lived in.",
+    "size_guide": "Size Guide",
+    "all": "All",
+    "empty": "No products here yet."
+  },
+  "collections": {
+    "title": "Collections",
+    "subtitle": "Quiet edits of everyday essentials."
+  },
+  "journal": {
+    "title": "Journal",
+    "subtitle": "A journal of inspiration, our process, and the beauty of everyday essentials.",
+    "all": "All",
+    "back_to": "Back to Journal",
+    "next_label": "Next",
+    "title_atelier": "Inside the Atelier",
+    "title_fabrics": "The Beauty of Natural Fabrics",
+    "title_paris": "Paris, Always",
+    "title_intention": "Designed with Intention",
+    "title_rituals": "Everyday Rituals",
+    "title_details": "The Details Matter"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "A question about an order, a fabric, or a fit — we’re here.",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "whatsapp_text": "Customer service:",
+    "shipping": "Shipping",
+    "shipping_text": "Complimentary shipping on orders over ₪500. Delivery within 5 business days, up to 10 for remote areas, or self pickup in Rehovot within 2 business days.",
+    "full_details": "Full details",
+    "returns": "Returns",
+    "returns_text": "Easy returns and exchanges within 14 days, in original condition.",
+    "read_policy": "Read our policy",
+    "follow": "Follow",
+    "instagram": "Instagram",
+    "name": "Name",
+    "email_label": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Merci — your message has been received. We’ll be in touch shortly.",
+    "error": "Please check the highlighted fields and try again."
+  },
+  "about": {
+    "label": "Our Story",
+    "heading": "We don’t design for the season.<br>We design for the years in between.",
+    "s1_heading": "The Fine Art of Basics",
+    "s1_p1": "Nina et Michelle was born from a simple idea: that the pieces you wear every day deserve the most care, not the least.",
+    "s1_p2": "From the first sketch to the final stitch, every detail is considered. We take our time selecting fabrics, perfecting silhouettes, and creating garments that feel effortless to wear.",
+    "s1_p3": "We don’t believe in overdesign. We believe in thoughtful construction, timeless proportions, and quality that speaks without words.",
+    "s1_cta": "Inside the Atelier",
+    "s2_heading": "Materials & Care",
+    "s2_p1": "Every collection begins with a thoughtful choice of fabric. We select materials for their texture, weight, and the way they naturally move with the body.",
+    "s2_p2": "True luxury is found in simplicity — in the softness of natural fibers, refined finishes, and pieces designed to become part of everyday life. Cared for gently, they only get better with time.",
+    "s2_cta": "The Beauty of Natural Fabrics",
+    "quote": "“Every collection carries a little piece of Paris—and a little piece of us.”",
+    "signature": "Nina & Michelle",
+    "news_heading": "Stay close",
+    "news_text": "New collections, journal entries and quiet inspiration — occasionally, and only when it matters.",
+    "news_placeholder": "Your email address",
+    "news_button": "Subscribe",
+    "news_note": "You can unsubscribe at any time."
+  },
+  "product": {
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "sale": "Sale",
+    "qty_decrease": "Decrease quantity",
+    "qty_increase": "Increase quantity",
+    "quantity": "Quantity",
+    "size_guide": "Size Guide",
+    "size_guide_text": "Find your fit in our <a href=\"/pages/size-guide\" style=\"border-bottom:1px solid currentColor;\">size guide</a>. Between sizes? We recommend sizing up for a relaxed fit.",
+    "shipping": "Shipping",
+    "shipping_text": "Complimentary shipping on orders over ₪500. Delivery within 5 business days (up to 10 for remote areas), or free self pickup in Rehovot within 2 business days.",
+    "returns": "Returns",
+    "returns_text": "Returns and exchanges within 14 days, in original condition with tags attached. Return shipping is deducted from the refund, or return free of charge to our Rehovot studio."
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty —",
+    "continue": "continue shopping",
+    "update": "Update Cart",
+    "subtotal": "Subtotal:",
+    "note": "Complimentary shipping · taxes calculated at checkout",
+    "checkout": "Checkout"
+  },
+  "search": {
+    "title": "Search",
+    "results_html": "{{ count }} results for “{{ terms }}”",
+    "placeholder": "Search products",
+    "button": "Search"
   }
 }

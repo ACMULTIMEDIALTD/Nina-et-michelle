@@ -1,8 +1,8 @@
 <div class="container">
   <div class="page-intro">
     <div>
-      <h1>Collections</h1>
-      <p class="intro-sub">Quiet edits of everyday essentials.</p>
+      <h1>{{ 'collections.title' | t }}</h1>
+      <p class="intro-sub">{{ 'collections.subtitle' | t }}</p>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
           </div>
           <div class="c-label">
             <h3>{{ collection.title }}</h3>
-            <span>Explore</span>
+            <span>{{ 'general.explore' | t }}</span>
           </div>
         </a>
       {% endunless %}

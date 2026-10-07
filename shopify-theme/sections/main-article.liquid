@@ -1,8 +1,9 @@
+{% assign is_he = false %}{% if request.locale.iso_code == 'he' %}{% assign is_he = true %}{% endif %}
 <article>
   <header class="article-hero">
     <div class="ah-meta">
       {% if article.tags.size > 0 %}<span class="label muted">{{ article.tags.first }}</span>{% endif %}
-      <span class="label muted">{{ article.published_at | date: '%B %-d, %Y' }}</span>
+      <span class="label muted">{% if is_he %}{{ article.published_at | date: '%-d ב%B %Y' }}{% else %}{{ article.published_at | date: '%B %-d, %Y' }}{% endif %}</span>
     </div>
     <h1>{{ article.title }}</h1>
     {% if article.excerpt != blank %}<p class="standfirst">{{ article.excerpt | strip_html }}</p>{% endif %}
@@ -20,19 +21,19 @@
 
   {% assign article_slug = article.handle | split: '/' | last %}
   {% case article_slug %}
-    {% when 'inside-the-atelier' %}{% assign next_handle = 'the-beauty-of-natural-fabrics' %}{% assign next_title = 'The Beauty of Natural Fabrics' %}
-    {% when 'the-beauty-of-natural-fabrics' %}{% assign next_handle = 'paris-always' %}{% assign next_title = 'Paris, Always' %}
-    {% when 'paris-always' %}{% assign next_handle = 'inside-the-atelier' %}{% assign next_title = 'Inside the Atelier' %}
-    {% when 'designed-with-intention' %}{% assign next_handle = 'inside-the-atelier' %}{% assign next_title = 'Inside the Atelier' %}
-    {% when 'everyday-rituals' %}{% assign next_handle = 'designed-with-intention' %}{% assign next_title = 'Designed with Intention' %}
-    {% when 'the-details-matter' %}{% assign next_handle = 'everyday-rituals' %}{% assign next_title = 'Everyday Rituals' %}
+    {% when 'inside-the-atelier' %}{% assign next_handle = 'the-beauty-of-natural-fabrics' %}{% assign next_title = 'journal.title_fabrics' | t %}
+    {% when 'the-beauty-of-natural-fabrics' %}{% assign next_handle = 'paris-always' %}{% assign next_title = 'journal.title_paris' | t %}
+    {% when 'paris-always' %}{% assign next_handle = 'inside-the-atelier' %}{% assign next_title = 'journal.title_atelier' | t %}
+    {% when 'designed-with-intention' %}{% assign next_handle = 'inside-the-atelier' %}{% assign next_title = 'journal.title_atelier' | t %}
+    {% when 'everyday-rituals' %}{% assign next_handle = 'designed-with-intention' %}{% assign next_title = 'journal.title_intention' | t %}
+    {% when 'the-details-matter' %}{% assign next_handle = 'everyday-rituals' %}{% assign next_title = 'journal.title_rituals' | t %}
   {% endcase %}
   <footer class="article-footer">
-    <a href="{{ blog.url }}" class="link-cta">&#10229; Back to {{ blog.title }}</a>
+    <a href="{{ blog.url }}" class="link-cta">{{ 'general.arrow_back' | t }} {{ 'journal.back_to' | t }}</a>
     {% if next_handle %}
-      <a href="{{ blog.url }}/{{ next_handle }}" class="link-cta">Next: {{ next_title }} <span class="arrow">&#10230;</span></a>
+      <a href="{{ blog.url }}/{{ next_handle }}" class="link-cta">{{ 'journal.next_label' | t }}: {{ next_title }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>
     {% elsif blog.next_article %}
-      <a href="{{ blog.next_article.url }}" class="link-cta">Next: {{ blog.next_article.title }} <span class="arrow">&#10230;</span></a>
+      <a href="{{ blog.next_article.url }}" class="link-cta">{{ 'journal.next_label' | t }}: {{ blog.next_article.title }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>
     {% endif %}
   </footer>
 </article>

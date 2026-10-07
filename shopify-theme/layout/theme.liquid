@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ request.locale.iso_code }}">
+<html lang="{{ request.locale.iso_code }}"{% if request.locale.iso_code == 'he' %} dir="rtl"{% endif %}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,40 +8,66 @@
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  {% if request.locale.iso_code == 'he' %}
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  {% else %}
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  {% endif %}
   {{ 'theme.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
 </head>
 <body>
 
-  <div class="topbar">{{ settings.announcement_text | default: 'Complimentary shipping on orders over ₪500' }}</div>
+  <div class="topbar">{% if request.locale.iso_code == 'he' %}{{ 'general.topbar' | t }}{% else %}{{ settings.announcement_text | default: 'Complimentary shipping on orders over ₪500' }}{% endif %}</div>
 
   <header class="site-header">
     <div class="container nav-wrap">
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" id="menuToggle" aria-label="{{ 'general.menu_open' | t }}"><span></span><span></span><span></span></button>
       <ul class="nav-links">
-        <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
-        <li><a href="{{ routes.collections_url }}">Collections</a></li>
-        <li><a href="/pages/about">About</a></li>
-        <li><a href="{{ blog.url | default: '/blogs/journal' }}">Journal</a></li>
+        <li><a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a></li>
+        <li><a href="{{ routes.collections_url }}">{{ 'nav.collections' | t }}</a></li>
+        <li><a href="/pages/about">{{ 'nav.about' | t }}</a></li>
+        <li><a href="{{ blog.url | default: '/blogs/journal' }}">{{ 'nav.journal' | t }}</a></li>
       </ul>
       <a href="{{ routes.root_url }}" class="logo">{{ shop.name }}</a>
       <ul class="nav-utils">
-        <li class="hide-mobile"><a href="{{ routes.search_url }}">Search</a></li>
-        <li class="hide-mobile"><a href="{{ routes.account_url }}">Account</a></li>
-        <li><a href="{{ routes.cart_url }}">Cart (<span id="cartCount">{{ cart.item_count }}</span>)</a></li>
+        {% if localization.available_languages.size > 1 %}
+          <li>
+            {% form 'localization', id: 'LangSwitch' %}
+              {% if request.locale.iso_code == 'he' %}
+                <button type="submit" name="locale_code" value="en" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:inherit;padding:0 0 3px;border-bottom:1px solid transparent;">English</button>
+              {% else %}
+                <button type="submit" name="locale_code" value="he" style="background:none;border:none;cursor:pointer;font-family:'Assistant','EB Garamond',sans-serif;font-size:12px;letter-spacing:0.08em;color:inherit;padding:0 0 3px;border-bottom:1px solid transparent;">עברית</button>
+              {% endif %}
+            {% endform %}
+          </li>
+        {% endif %}
+        <li class="hide-mobile"><a href="{{ routes.search_url }}">{{ 'general.search' | t }}</a></li>
+        <li class="hide-mobile"><a href="{{ routes.account_url }}">{{ 'general.account' | t }}</a></li>
+        <li><a href="{{ routes.cart_url }}">{{ 'general.cart' | t }} (<span id="cartCount">{{ cart.item_count }}</span>)</a></li>
       </ul>
     </div>
   </header>
 
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
+    <button class="nav-close" id="navClose" aria-label="{{ 'general.menu_close' | t }}">✕</button>
     <ul>
-      <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
-      <li><a href="{{ routes.collections_url }}">Collections</a></li>
-      <li><a href="/pages/about">About</a></li>
-      <li><a href="/blogs/journal">Journal</a></li>
-      <li><a href="/pages/contact">Contact</a></li>
+      <li><a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a></li>
+      <li><a href="{{ routes.collections_url }}">{{ 'nav.collections' | t }}</a></li>
+      <li><a href="/pages/about">{{ 'nav.about' | t }}</a></li>
+      <li><a href="/blogs/journal">{{ 'nav.journal' | t }}</a></li>
+      <li><a href="/pages/contact">{{ 'nav.contact' | t }}</a></li>
+      {% if localization.available_languages.size > 1 %}
+        <li>
+          {% form 'localization', id: 'LangSwitchMobile' %}
+            {% if request.locale.iso_code == 'he' %}
+              <button type="submit" name="locale_code" value="en" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:15px;letter-spacing:0.3em;text-transform:uppercase;color:inherit;">English</button>
+            {% else %}
+              <button type="submit" name="locale_code" value="he" style="background:none;border:none;cursor:pointer;font-family:'Assistant',sans-serif;font-size:16px;letter-spacing:0.08em;color:inherit;">עברית</button>
+            {% endif %}
+          {% endform %}
+        </li>
+      {% endif %}
     </ul>
   </nav>
 
@@ -53,49 +79,49 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <div class="logo">{{ shop.name }}</div>
-        <p>© {{ 'now' | date: '%Y' }} All rights reserved</p>
+        <p>© {{ 'now' | date: '%Y' }} {{ 'footer.rights' | t }}</p>
       </div>
       <div>
-        <h5>Shop</h5>
+        <h5>{{ 'footer.shop' | t }}</h5>
         <ul>
-          <li><a href="{{ routes.all_products_collection_url }}">All Products</a></li>
-          <li><a href="/collections/tops">Tops</a></li>
-          <li><a href="/collections/bottoms">Bottoms</a></li>
-          <li><a href="/collections/sets">Sets</a></li>
+          <li><a href="{{ routes.all_products_collection_url }}">{{ 'footer.all_products' | t }}</a></li>
+          <li><a href="/collections/tops">{{ 'footer.tops' | t }}</a></li>
+          <li><a href="/collections/bottoms">{{ 'footer.bottoms' | t }}</a></li>
+          <li><a href="/collections/sets">{{ 'footer.sets' | t }}</a></li>
         </ul>
       </div>
       <div>
-        <h5>About</h5>
+        <h5>{{ 'footer.about' | t }}</h5>
         <ul>
-          <li><a href="/pages/about">Our Story</a></li>
-          <li><a href="/blogs/journal/the-beauty-of-natural-fabrics">Materials</a></li>
-          <li><a href="/pages/about#care">Care</a></li>
+          <li><a href="/pages/about">{{ 'footer.our_story' | t }}</a></li>
+          <li><a href="/blogs/journal/the-beauty-of-natural-fabrics">{{ 'footer.materials' | t }}</a></li>
+          <li><a href="/pages/about#care">{{ 'footer.care' | t }}</a></li>
         </ul>
       </div>
       <div>
-        <h5>Help</h5>
+        <h5>{{ 'footer.help' | t }}</h5>
         <ul>
-          <li><a href="/pages/shipping-returns">Shipping</a></li>
-          <li><a href="/pages/shipping-returns#returns">Returns</a></li>
-          <li><a href="/pages/faq">FAQ</a></li>
-          <li><a href="/pages/size-guide">Size Guide</a></li>
+          <li><a href="/pages/shipping-returns">{{ 'footer.shipping' | t }}</a></li>
+          <li><a href="/pages/shipping-returns#returns">{{ 'footer.returns' | t }}</a></li>
+          <li><a href="/pages/faq">{{ 'footer.faq' | t }}</a></li>
+          <li><a href="/pages/size-guide">{{ 'footer.size_guide' | t }}</a></li>
         </ul>
       </div>
       <div>
-        <h5>Follow</h5>
+        <h5>{{ 'footer.follow' | t }}</h5>
         <ul>
-          {% if settings.instagram_url != blank %}<li><a href="{{ settings.instagram_url }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
-          {% if settings.whatsapp_number != blank %}<li><a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener">WhatsApp</a></li>{% endif %}
-          <li><a href="mailto:{{ shop.email }}">Email</a></li>
+          {% if settings.instagram_url != blank %}<li><a href="{{ settings.instagram_url }}" target="_blank" rel="noopener">{{ 'footer.instagram' | t }}</a></li>{% endif %}
+          {% if settings.whatsapp_number != blank %}<li><a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener">{{ 'footer.whatsapp' | t }}</a></li>{% endif %}
+          <li><a href="mailto:{{ shop.email }}">{{ 'footer.email' | t }}</a></li>
         </ul>
       </div>
     </div>
     <div class="container footer-bottom">
       <span>{{ shop.name }}</span>
       <nav>
-        <a href="/pages/terms">Terms &amp; Conditions</a>
-        <a href="/pages/privacy">Privacy Policy</a>
-        <a href="/pages/accessibility">Accessibility</a>
+        <a href="/pages/terms">{{ 'footer.terms' | t }}</a>
+        <a href="/pages/privacy">{{ 'footer.privacy' | t }}</a>
+        <a href="/pages/accessibility">{{ 'footer.accessibility' | t }}</a>
       </nav>
     </div>
   </footer>

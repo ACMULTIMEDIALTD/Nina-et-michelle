@@ -5,12 +5,13 @@
 <section class="journal-strip">
   <div class="container">
     <div class="strip-head">
-      <span class="label">Journal</span>
-      {% if journal %}<a href="{{ journal.url }}" class="link-cta" style="padding-bottom:6px;">View All <span class="arrow">&#10230;</span></a>{% endif %}
+      <span class="label">{{ 'home.journal_label' | t }}</span>
+      {% if journal %}<a href="{{ journal.url }}" class="link-cta" style="padding-bottom:6px;">{{ 'general.view_all' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>{% endif %}
     </div>
     <div class="journal-cards">
       {% assign strip_handles = 'paris-always,the-beauty-of-natural-fabrics,inside-the-atelier' | split: ',' %}
-      {% assign strip_titles = 'A Day in Paris,The Beauty of Natural Fabrics,In the Studio' | split: ',' %}
+      {% capture strip_titles_str %}{{ 'home.card_paris' | t }}|{{ 'home.card_fabrics' | t }}|{{ 'home.card_atelier' | t }}{% endcapture %}
+      {% assign strip_titles = strip_titles_str | split: '|' %}
       {% assign found_any = false %}
       {% for h in strip_handles %}
         {% assign lookup = 'journal/' | append: h %}
@@ -20,7 +21,7 @@
           <a href="{{ article.url }}" class="j-card">
             <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
             <h3>{{ strip_titles[forloop.index0] }}</h3>
-            <p class="j-date">{{ article.published_at | date: '%b %-d, %Y' }}</p>
+            <p class="j-date">{% if request.locale.iso_code == 'he' %}{{ article.published_at | date: '%-d ב%B %Y' }}{% else %}{{ article.published_at | date: '%b %-d, %Y' }}{% endif %}</p>
           </a>
         {% endif %}
       {% endfor %}
@@ -30,7 +31,7 @@
             <a href="{{ article.url }}" class="j-card">
               <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
               <h3>{{ article.title }}</h3>
-              <p class="j-date">{{ article.published_at | date: '%b %-d, %Y' }}</p>
+              <p class="j-date">{% if request.locale.iso_code == 'he' %}{{ article.published_at | date: '%-d ב%B %Y' }}{% else %}{{ article.published_at | date: '%b %-d, %Y' }}{% endif %}</p>
             </a>
           {% endfor %}
         {% endif %}

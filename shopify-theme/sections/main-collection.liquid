@@ -2,16 +2,16 @@
   <div class="page-intro">
     <div>
       {% if collection.handle == 'all' %}
-        <h1>Shop</h1>
-        <p class="intro-sub">Timeless essentials, designed to be lived in.</p>
-        <p style="margin-top:14px;"><a href="/pages/size-guide" class="link-cta">Size Guide <span class="arrow">&#10230;</span></a></p>
+        <h1>{{ 'shop.title' | t }}</h1>
+        <p class="intro-sub">{{ 'shop.subtitle' | t }}</p>
+        <p style="margin-top:14px;"><a href="/pages/size-guide" class="link-cta">{{ 'shop.size_guide' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></a></p>
       {% else %}
         <h1>{{ collection.title }}</h1>
         {% if collection.description != blank %}<p class="intro-sub">{{ collection.description | strip_html }}</p>{% endif %}
       {% endif %}
     </div>
     <nav class="filter-tabs" aria-label="Collections">
-      <a href="{{ routes.all_products_collection_url }}" {% if collection.handle == 'all' %}class="active"{% endif %}>All</a>
+      <a href="{{ routes.all_products_collection_url }}" {% if collection.handle == 'all' %}class="active"{% endif %}>{{ 'shop.all' | t }}</a>
       {% for c in collections %}
         {% unless c.handle == 'all' or c.handle == 'frontpage' %}
           <a href="{{ c.url }}" {% if c.handle == collection.handle %}class="active"{% endif %}>{{ c.title }}</a>
@@ -25,13 +25,13 @@
       {% for product in collection.products %}
         {% render 'product-card', product: product %}
       {% else %}
-        <p style="grid-column:1/-1; text-align:center; color:#8b867c;">No products here yet.</p>
+        <p style="grid-column:1/-1; text-align:center; color:#8b867c;">{{ 'shop.empty' | t }}</p>
       {% endfor %}
     </div>
     {% if paginate.pages > 1 %}
       <div style="text-align:center; padding-bottom:80px;">
-        {% if paginate.previous %}<a class="link-cta" href="{{ paginate.previous.url }}">&#10229; Previous</a>{% endif %}
-        {% if paginate.next %}<a class="link-cta" href="{{ paginate.next.url }}" style="margin-inline-start:30px;">Next <span class="arrow">&#10230;</span></a>{% endif %}
+        {% if paginate.previous %}<a class="link-cta" href="{{ paginate.previous.url }}">{{ 'general.arrow_back' | t }} {{ 'general.previous' | t }}</a>{% endif %}
+        {% if paginate.next %}<a class="link-cta" href="{{ paginate.next.url }}" style="margin-inline-start:30px;">{{ 'general.next' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>{% endif %}
       </div>
     {% endif %}
   {% endpaginate %}

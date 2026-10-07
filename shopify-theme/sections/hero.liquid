@@ -1,8 +1,9 @@
+{% assign is_he = false %}{% if request.locale.iso_code == 'he' %}{% assign is_he = true %}{% endif %}
 <section class="hero">
   <h1>{{ section.settings.heading | default: shop.name }}</h1>
   <div class="rule"></div>
-  <p class="tagline">{{ section.settings.tagline }}</p>
-  <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="link-cta">{{ section.settings.button_label }} <span class="arrow">&#10230;</span></a>
+  <p class="tagline">{% if is_he %}{{ 'home.tagline' | t }}{% else %}{{ section.settings.tagline }}{% endif %}</p>
+  <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="link-cta">{% if is_he %}{{ 'home.shop_collection' | t }}{% else %}{{ section.settings.button_label }}{% endif %} <span class="arrow">{{ 'general.arrow' | t }}</span></a>
 </section>
 
 {% schema %}

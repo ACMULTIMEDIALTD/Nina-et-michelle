@@ -1,8 +1,8 @@
 <div class="hero">
-  <h1 style="font-size:clamp(24px,3vw,36px);">Page Not Found</h1>
+  <h1 style="font-size:clamp(24px,3vw,36px);">{{ 'general.404.title' | t }}</h1>
   <div class="rule"></div>
-  <p class="tagline">The page you're looking for doesn't exist.</p>
-  <a href="{{ routes.root_url }}" class="link-cta">Back to Home <span class="arrow">&#10230;</span></a>
+  <p class="tagline">{{ 'general.404.text' | t }}</p>
+  <a href="{{ routes.root_url }}" class="link-cta">{{ 'general.404.back_home' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>
 </div>
 
 {% schema %}
