@@ -1,6 +1,8 @@
 {
   "general": {
-    "meta": { "page": "Page {{ page }}" },
+    "meta": {
+      "page": "Page {{ page }}"
+    },
     "404": {
       "title": "Page Not Found",
       "text": "The page you're looking for doesn't exist.",
@@ -151,7 +153,9 @@
     "update": "Update Cart",
     "subtotal": "Subtotal:",
     "note": "Complimentary shipping · taxes calculated at checkout",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "agree_html": "I have read and agree to the <a href=\"/pages/terms\" style=\"border-bottom:1px solid currentColor;\">Terms of Use</a> and the <a href=\"/pages/privacy\" style=\"border-bottom:1px solid currentColor;\">Privacy Policy</a>.",
+    "agree_error": "Please confirm the Terms of Use and Privacy Policy before checkout."
   },
   "search": {
     "title": "Search",

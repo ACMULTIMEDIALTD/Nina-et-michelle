@@ -33,7 +33,34 @@
         <div style="text-align:end;">
           <p style="font-size:22px; margin-bottom:6px;">{{ 'cart.subtotal' | t }} {{ cart.total_price | money }}</p>
           <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">{{ 'cart.note' | t }}</p>
-          <button type="submit" name="checkout" class="btn btn-dark">{{ 'cart.checkout' | t }}</button>
+          <label id="AgreeWrap" style="display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:18px; cursor:pointer; max-width:420px; margin-inline-start:auto; text-align:start;">
+            <input type="checkbox" id="AgreeTerms" style="margin-top:4px; accent-color:var(--ink); width:16px; height:16px; flex-shrink:0;">
+            <span>{{ 'cart.agree_html' | t }}</span>
+          </label>
+          <p id="AgreeError" style="display:none; color:#9a3b3b; font-size:13px; margin-bottom:14px;">{{ 'cart.agree_error' | t }}</p>
+          <button type="submit" name="checkout" id="CheckoutBtn" class="btn btn-dark">{{ 'cart.checkout' | t }}</button>
+          <script>
+            (function () {
+              var btn = document.getElementById('CheckoutBtn');
+              var box = document.getElementById('AgreeTerms');
+              var err = document.getElementById('AgreeError');
+              if (!btn || !box) return;
+              btn.addEventListener('click', function (e) {
+                if (!box.checked) {
+                  e.preventDefault();
+                  err.style.display = 'block';
+                  document.getElementById('AgreeWrap').style.outline = '1px solid #9a3b3b';
+                  document.getElementById('AgreeWrap').style.outlineOffset = '6px';
+                }
+              });
+              box.addEventListener('change', function () {
+                if (box.checked) {
+                  err.style.display = 'none';
+                  document.getElementById('AgreeWrap').style.outline = 'none';
+                }
+              });
+            })();
+          </script>
         </div>
       </div>
     </form>
