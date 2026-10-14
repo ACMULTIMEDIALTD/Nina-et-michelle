@@ -756,3 +756,7 @@ html[lang="he"] .size-table th { font-family: 'Assistant', sans-serif; }
   .nav-utils a { font-size: 10px; letter-spacing: 0.14em; }
   body { overflow-x: hidden; }
 }
+
+/* ---------- Legal docs ---------- */
+.article-body .num { font-weight: 600; margin-inline-end: 6px; }
+.article-body p.sub { margin-inline-start: 28px; }

@@ -773,3 +773,7 @@ html[lang="he"] .quote-band blockquote { font-style: normal; }
 html[lang="he"] .contact-block h3 { font-family: 'Assistant', sans-serif; letter-spacing: 0.08em; }
 html[lang="he"] .tile-content { margin-inline-start: auto; }
 html[lang="he"] .size-table th { font-family: 'Assistant', sans-serif; }
+
+/* ---------- Legal docs ---------- */
+.article-body .num { font-weight: 600; margin-inline-end: 6px; }
+.article-body p.sub { margin-inline-start: 28px; }
