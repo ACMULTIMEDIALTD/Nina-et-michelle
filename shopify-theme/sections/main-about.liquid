@@ -4,13 +4,13 @@
 </section>
 
 <section class="container about-split">
-  <div class="a-img"><img src="https://acmultimedialtd.github.io/Nina-et-michelle/images/atelier-wall.jpg" alt="{{ 'about.s1_heading' | t | strip_html }}" loading="lazy"></div>
+  <div class="a-img"><img src="{{ 'atelier-wall.jpg' | asset_url }}" width="1254" height="1254" alt="{{ 'about.s1_heading' | t | strip_html }}" loading="lazy"></div>
   <div>
     <h2>{{ 'about.s1_heading' | t }}</h2>
     <p>{{ 'about.s1_p1' | t }}</p>
     <p>{{ 'about.s1_p2' | t }}</p>
     <p>{{ 'about.s1_p3' | t }}</p>
-    <a href="/blogs/journal/inside-the-atelier" class="link-cta">{{ 'about.s1_cta' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>
+    <a href="{{ routes.root_url | append: '/blogs/journal/inside-the-atelier' | replace: '//', '/' }}" class="link-cta">{{ 'about.s1_cta' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>
   </div>
 </section>
 
@@ -19,9 +19,9 @@
     <h2>{{ 'about.s2_heading' | t }}</h2>
     <p>{{ 'about.s2_p1' | t }}</p>
     <p>{{ 'about.s2_p2' | t }}</p>
-    <a href="/blogs/journal/the-beauty-of-natural-fabrics" class="link-cta">{{ 'about.s2_cta' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>
+    <a href="{{ routes.root_url | append: '/blogs/journal/the-beauty-of-natural-fabrics' | replace: '//', '/' }}" class="link-cta">{{ 'about.s2_cta' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></a>
   </div>
-  <div class="a-img"><img src="https://acmultimedialtd.github.io/Nina-et-michelle/images/fabric.jpg" alt="{{ 'about.s2_heading' | t | strip_html }}" loading="lazy"></div>
+  <div class="a-img"><img src="{{ 'fabric.jpg' | asset_url }}" width="1536" height="1024" alt="{{ 'about.s2_heading' | t | strip_html }}" loading="lazy"></div>
 </section>
 
 <section class="quote-band">

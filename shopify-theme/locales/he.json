@@ -140,7 +140,7 @@
     "qty_increase": "הוספת כמות",
     "quantity": "כמות",
     "size_guide": "מדריך מידות",
-    "size_guide_text": "מצאי את המידה שלך ב<a href=\"/pages/size-guide\" style=\"border-bottom:1px solid currentColor;\">מדריך המידות</a>. בין מידות? מומלץ לבחור את הגדולה יותר לגזרה משוחררת.",
+    "size_guide_html": "מצאי את המידה שלך ב<a href=\"{{ root }}/pages/size-guide\" style=\"border-bottom:1px solid currentColor;\">מדריך המידות</a>. בין מידות? מומלץ לבחור את הגדולה יותר לגזרה משוחררת.",
     "shipping": "משלוחים",
     "shipping_text": "משלוח חינם בהזמנה מעל ₪500. אספקה עד 5 ימי עסקים (עד 10 לאזורים מרוחקים), או איסוף עצמי חינם מרחובות תוך 2 ימי עסקים.",
     "returns": "החזרות",
@@ -154,7 +154,7 @@
     "subtotal": "סה\"כ ביניים:",
     "note": "משלוח חינם · מסים מחושבים בקופה",
     "checkout": "לתשלום",
-    "agree_html": "קראתי ואני מאשר/ת את <a href=\"/pages/terms\" style=\"border-bottom:1px solid currentColor;\">תנאי השימוש</a> ואת <a href=\"/pages/privacy\" style=\"border-bottom:1px solid currentColor;\">מדיניות הפרטיות</a>.",
+    "agree_html": "קראתי ואני מאשר/ת את <a href=\"{{ root }}/pages/terms\" style=\"border-bottom:1px solid currentColor;\">תנאי השימוש</a> ואת <a href=\"{{ root }}/pages/privacy\" style=\"border-bottom:1px solid currentColor;\">מדיניות הפרטיות</a>.",
     "agree_error": "יש לאשר את תנאי השימוש ומדיניות הפרטיות לפני התשלום."
   },
   "search": {
@@ -162,5 +162,10 @@
     "results_html": "{{ count }} תוצאות עבור \"{{ terms }}\"",
     "placeholder": "חיפוש מוצרים",
     "button": "חיפוש"
+  },
+  "password": {
+    "enter": "כניסה עם סיסמה",
+    "label": "סיסמה",
+    "submit": "כניסה"
   }
 }

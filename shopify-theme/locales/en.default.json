@@ -140,7 +140,7 @@
     "qty_increase": "Increase quantity",
     "quantity": "Quantity",
     "size_guide": "Size Guide",
-    "size_guide_text": "Find your fit in our <a href=\"/pages/size-guide\" style=\"border-bottom:1px solid currentColor;\">size guide</a>. Between sizes? We recommend sizing up for a relaxed fit.",
+    "size_guide_html": "Find your fit in our <a href=\"{{ root }}/pages/size-guide\" style=\"border-bottom:1px solid currentColor;\">size guide</a>. Between sizes? We recommend sizing up for a relaxed fit.",
     "shipping": "Shipping",
     "shipping_text": "Complimentary shipping on orders over ₪500. Delivery within 5 business days (up to 10 for remote areas), or free self pickup in Rehovot within 2 business days.",
     "returns": "Returns",
@@ -154,7 +154,7 @@
     "subtotal": "Subtotal:",
     "note": "Complimentary shipping · taxes calculated at checkout",
     "checkout": "Checkout",
-    "agree_html": "I have read and agree to the <a href=\"/pages/terms\" style=\"border-bottom:1px solid currentColor;\">Terms of Use</a> and the <a href=\"/pages/privacy\" style=\"border-bottom:1px solid currentColor;\">Privacy Policy</a>.",
+    "agree_html": "I have read and agree to the <a href=\"{{ root }}/pages/terms\" style=\"border-bottom:1px solid currentColor;\">Terms of Use</a> and the <a href=\"{{ root }}/pages/privacy\" style=\"border-bottom:1px solid currentColor;\">Privacy Policy</a>.",
     "agree_error": "Please confirm the Terms of Use and Privacy Policy before checkout."
   },
   "search": {
@@ -162,5 +162,10 @@
     "results_html": "{{ count }} results for “{{ terms }}”",
     "placeholder": "Search products",
     "button": "Search"
+  },
+  "password": {
+    "enter": "Enter using password",
+    "label": "Password",
+    "submit": "Enter"
   }
 }

@@ -7,9 +7,9 @@
         {{ block.settings.image | image_url: width: 1600 | image_tag: alt: block.settings.heading, class: '' }}
       {% else %}
         {% if forloop.first %}
-          <img src="https://acmultimedialtd.github.io/Nina-et-michelle/images/new-collection.jpg" alt="{{ block.settings.heading | strip_html }}" loading="lazy">
+          <img src="{{ 'new-collection.jpg' | asset_url }}" width="1254" height="1254" alt="{{ block.settings.heading | strip_html }}" loading="lazy">
         {% else %}
-          <img src="https://acmultimedialtd.github.io/Nina-et-michelle/images/fabric.jpg" alt="{{ block.settings.heading | strip_html }}" loading="lazy">
+          <img src="{{ 'fabric.jpg' | asset_url }}" width="1536" height="1024" alt="{{ block.settings.heading | strip_html }}" loading="lazy">
         {% endif %}
       {% endif %}
       <div class="tile-content">

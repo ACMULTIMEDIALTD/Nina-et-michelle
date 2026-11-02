@@ -1,3 +1,9 @@
+{%- liquid
+  assign root = routes.root_url
+  if root == '/'
+    assign root = ''
+  endif
+-%}
 <div class="container">
   <div class="page-intro">
     <div>
@@ -35,7 +41,7 @@
           <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">{{ 'cart.note' | t }}</p>
           <label id="AgreeWrap" style="display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:18px; cursor:pointer; max-width:420px; margin-inline-start:auto; text-align:start;">
             <input type="checkbox" id="AgreeTerms" style="margin-top:4px; accent-color:var(--ink); width:16px; height:16px; flex-shrink:0;">
-            <span>{{ 'cart.agree_html' | t }}</span>
+            <span>{{ 'cart.agree_html' | t: root: root }}</span>
           </label>
           <p id="AgreeError" style="display:none; color:#9a3b3b; font-size:13px; margin-bottom:14px;">{{ 'cart.agree_error' | t }}</p>
           <button type="submit" name="checkout" id="CheckoutBtn" class="btn btn-dark">{{ 'cart.checkout' | t }}</button>

@@ -18,11 +18,11 @@
       </div>
       <div class="contact-block">
         <h3>{{ 'contact.shipping' | t }}</h3>
-        <p>{{ 'contact.shipping_text' | t }} <a href="/pages/shipping-returns" style="border-bottom:1px solid currentColor;">{{ 'contact.full_details' | t }}</a></p>
+        <p>{{ 'contact.shipping_text' | t }} <a href="{{ routes.root_url | append: '/pages/shipping-returns' | replace: '//', '/' }}" style="border-bottom:1px solid currentColor;">{{ 'contact.full_details' | t }}</a></p>
       </div>
       <div class="contact-block">
         <h3>{{ 'contact.returns' | t }}</h3>
-        <p>{{ 'contact.returns_text' | t }} <a href="/pages/shipping-returns#returns" style="border-bottom:1px solid currentColor;">{{ 'contact.read_policy' | t }}</a></p>
+        <p>{{ 'contact.returns_text' | t }} <a href="{{ routes.root_url | append: '/pages/shipping-returns' | replace: '//', '/' }}#returns" style="border-bottom:1px solid currentColor;">{{ 'contact.read_policy' | t }}</a></p>
       </div>
       <div class="contact-block">
         <h3>{{ 'contact.follow' | t }}</h3>

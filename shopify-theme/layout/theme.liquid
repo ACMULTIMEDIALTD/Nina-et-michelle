@@ -26,7 +26,7 @@
       <ul class="nav-links">
         <li><a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a></li>
         <li><a href="{{ routes.collections_url }}">{{ 'nav.collections' | t }}</a></li>
-        <li><a href="/pages/about">{{ 'nav.about' | t }}</a></li>
+        <li><a href="{{ routes.root_url | append: '/pages/about' | replace: '//', '/' }}">{{ 'nav.about' | t }}</a></li>
         <li><a href="{{ blog.url | default: '/blogs/journal' }}">{{ 'nav.journal' | t }}</a></li>
       </ul>
       <a href="{{ routes.root_url }}" class="logo">{{ shop.name }}</a>
@@ -54,9 +54,9 @@
     <ul>
       <li><a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a></li>
       <li><a href="{{ routes.collections_url }}">{{ 'nav.collections' | t }}</a></li>
-      <li><a href="/pages/about">{{ 'nav.about' | t }}</a></li>
-      <li><a href="/blogs/journal">{{ 'nav.journal' | t }}</a></li>
-      <li><a href="/pages/contact">{{ 'nav.contact' | t }}</a></li>
+      <li><a href="{{ routes.root_url | append: '/pages/about' | replace: '//', '/' }}">{{ 'nav.about' | t }}</a></li>
+      <li><a href="{{ routes.root_url | append: '/blogs/journal' | replace: '//', '/' }}">{{ 'nav.journal' | t }}</a></li>
+      <li><a href="{{ routes.root_url | append: '/pages/contact' | replace: '//', '/' }}">{{ 'nav.contact' | t }}</a></li>
       {% if localization.available_languages.size > 1 %}
         <li>
           {% form 'localization', id: 'LangSwitchMobile' %}
@@ -85,26 +85,26 @@
         <h5>{{ 'footer.shop' | t }}</h5>
         <ul>
           <li><a href="{{ routes.all_products_collection_url }}">{{ 'footer.all_products' | t }}</a></li>
-          <li><a href="/collections/tops">{{ 'footer.tops' | t }}</a></li>
-          <li><a href="/collections/bottoms">{{ 'footer.bottoms' | t }}</a></li>
-          <li><a href="/collections/sets">{{ 'footer.sets' | t }}</a></li>
+          <li><a href="{{ routes.collections_url }}/tops">{{ 'footer.tops' | t }}</a></li>
+          <li><a href="{{ routes.collections_url }}/bottoms">{{ 'footer.bottoms' | t }}</a></li>
+          <li><a href="{{ routes.collections_url }}/sets">{{ 'footer.sets' | t }}</a></li>
         </ul>
       </div>
       <div>
         <h5>{{ 'footer.about' | t }}</h5>
         <ul>
-          <li><a href="/pages/about">{{ 'footer.our_story' | t }}</a></li>
-          <li><a href="/blogs/journal/the-beauty-of-natural-fabrics">{{ 'footer.materials' | t }}</a></li>
-          <li><a href="/pages/about#care">{{ 'footer.care' | t }}</a></li>
+          <li><a href="{{ routes.root_url | append: '/pages/about' | replace: '//', '/' }}">{{ 'footer.our_story' | t }}</a></li>
+          <li><a href="{{ routes.root_url | append: '/blogs/journal/the-beauty-of-natural-fabrics' | replace: '//', '/' }}">{{ 'footer.materials' | t }}</a></li>
+          <li><a href="{{ routes.root_url | append: '/pages/about' | replace: '//', '/' }}#care">{{ 'footer.care' | t }}</a></li>
         </ul>
       </div>
       <div>
         <h5>{{ 'footer.help' | t }}</h5>
         <ul>
-          <li><a href="/pages/shipping-returns">{{ 'footer.shipping' | t }}</a></li>
-          <li><a href="/pages/shipping-returns#returns">{{ 'footer.returns' | t }}</a></li>
-          <li><a href="/pages/faq">{{ 'footer.faq' | t }}</a></li>
-          <li><a href="/pages/size-guide">{{ 'footer.size_guide' | t }}</a></li>
+          <li><a href="{{ routes.root_url | append: '/pages/shipping-returns' | replace: '//', '/' }}">{{ 'footer.shipping' | t }}</a></li>
+          <li><a href="{{ routes.root_url | append: '/pages/shipping-returns' | replace: '//', '/' }}#returns">{{ 'footer.returns' | t }}</a></li>
+          <li><a href="{{ routes.root_url | append: '/pages/faq' | replace: '//', '/' }}">{{ 'footer.faq' | t }}</a></li>
+          <li><a href="{{ routes.root_url | append: '/pages/size-guide' | replace: '//', '/' }}">{{ 'footer.size_guide' | t }}</a></li>
         </ul>
       </div>
       <div>
@@ -119,9 +119,9 @@
     <div class="container footer-bottom">
       <span>{{ shop.name }}</span>
       <nav>
-        <a href="/pages/terms">{{ 'footer.terms' | t }}</a>
-        <a href="/pages/privacy">{{ 'footer.privacy' | t }}</a>
-        <a href="/pages/accessibility">{{ 'footer.accessibility' | t }}</a>
+        <a href="{{ routes.root_url | append: '/pages/terms' | replace: '//', '/' }}">{{ 'footer.terms' | t }}</a>
+        <a href="{{ routes.root_url | append: '/pages/privacy' | replace: '//', '/' }}">{{ 'footer.privacy' | t }}</a>
+        <a href="{{ routes.root_url | append: '/pages/accessibility' | replace: '//', '/' }}">{{ 'footer.accessibility' | t }}</a>
       </nav>
     </div>
   </footer>
@@ -132,6 +132,6 @@
   </a>
   {% endif %}
 
-  {{ 'theme.js' | asset_url | script_tag }}
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
 </body>
 </html>
