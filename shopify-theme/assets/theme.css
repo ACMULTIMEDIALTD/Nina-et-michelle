@@ -774,6 +774,21 @@ html[lang="he"] .contact-block h3 { font-family: 'Assistant', sans-serif; letter
 html[lang="he"] .tile-content { margin-inline-start: auto; }
 html[lang="he"] .size-table th { font-family: 'Assistant', sans-serif; }
 
+/* Hebrew typography: Latin words (product names, brand) stay in EB Garamond and
+   Hebrew falls through to Frank Ruhl Libre; Hebrew UI text is not tracked like Latin caps. */
+html[lang="he"] body { font-family: 'EB Garamond', 'Frank Ruhl Libre', serif; }
+html[lang="he"] h1 { font-weight: 300; }
+html[lang="he"] .nav-links a,
+html[lang="he"] .nav-utils a,
+html[lang="he"] .nav-utils button,
+html[lang="he"] .mobile-nav a { font-size: 14px; letter-spacing: 0.02em; }
+html[lang="he"] .topbar,
+html[lang="he"] .label,
+html[lang="he"] .filter-tabs a,
+html[lang="he"] .footer-grid h5,
+html[lang="he"] .link-cta,
+html[lang="he"] .btn { font-size: 13px; letter-spacing: 0.04em; }
+
 /* ---------- Legal docs ---------- */
 .article-body .num { font-weight: 600; margin-inline-end: 6px; }
 .article-body p.sub { margin-inline-start: 28px; }

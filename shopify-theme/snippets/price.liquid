@@ -1,0 +1,3 @@
+{%- comment -%} Renders a price as ₪480 / ₪1,250.50 — independent of the store's money format. {%- endcomment -%}
+{%- assign amount_text = amount | money_without_currency | remove: '.00' -%}
+₪{{ amount_text }}

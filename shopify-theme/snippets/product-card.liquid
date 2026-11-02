@@ -15,9 +15,9 @@
   </div>
   <h3>{{ product.title }}</h3>
   <p class="p-price">
-    {{ product.price | money }}
+    {% render 'price', amount: product.price %}
     {% if product.compare_at_price > product.price %}
-      <span class="old">{{ product.compare_at_price | money }}</span>
+      <span class="old">{% render 'price', amount: product.compare_at_price %}</span>
     {% endif %}
   </p>
 </a>

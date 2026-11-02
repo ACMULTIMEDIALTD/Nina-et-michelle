@@ -696,6 +696,21 @@ html[lang="he"] .quote-band blockquote { font-style: normal; }
 html[lang="he"] .contact-block h3 { font-family: 'Assistant', sans-serif; letter-spacing: 0.08em; }
 html[lang="he"] .tile-content { margin-inline-start: auto; }
 
+/* Hebrew typography: Latin words (product names, brand) stay in EB Garamond and
+   Hebrew falls through to Frank Ruhl Libre; Hebrew UI text is not tracked like Latin caps. */
+html[lang="he"] body { font-family: 'EB Garamond', 'Frank Ruhl Libre', serif; }
+html[lang="he"] h1 { font-weight: 300; }
+html[lang="he"] .nav-links a,
+html[lang="he"] .nav-utils a,
+html[lang="he"] .nav-utils button,
+html[lang="he"] .mobile-nav a { font-size: 14px; letter-spacing: 0.02em; }
+html[lang="he"] .topbar,
+html[lang="he"] .label,
+html[lang="he"] .filter-tabs a,
+html[lang="he"] .footer-grid h5,
+html[lang="he"] .link-cta,
+html[lang="he"] .btn { font-size: 13px; letter-spacing: 0.04em; }
+
 /* ---------- Size guide table ---------- */
 .size-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 16px; }
 .size-table th, .size-table td { border: 1px solid var(--hairline); padding: 12px 14px; text-align: center; }

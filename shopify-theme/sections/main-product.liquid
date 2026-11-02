@@ -29,9 +29,9 @@
       <h1>{{ product.title }}</h1>
       {% if product.type != blank %}<p class="p-cat">{{ product.type | upcase }}</p>{% endif %}
       <p class="price" id="ProductPrice">
-        {{ product.selected_or_first_available_variant.price | money }}
+        {% render 'price', amount: product.selected_or_first_available_variant.price %}
         {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
-          <span class="old">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+          <span class="old">{% render 'price', amount: product.selected_or_first_available_variant.compare_at_price %}</span>
         {% endif %}
       </p>
       <div class="desc">{{ product.description }}</div>
@@ -62,7 +62,7 @@
             <input type="number" name="quantity" id="Qty" value="1" min="1" aria-label="{{ 'product.quantity' | t }}">
             <button type="button" data-qty="1" aria-label="{{ 'product.qty_increase' | t }}">+</button>
           </div>
-          <button type="submit" class="btn btn-dark" id="AddToCart" {% unless product.available %}disabled{% endunless %} style="flex:1;">
+          <button type="submit" class="btn btn-dark" id="AddToCart" data-label-add="{{ 'product.add_to_cart' | t }}" data-label-sold-out="{{ 'product.sold_out' | t }}" data-label-unavailable="{{ 'product.unavailable' | t }}" {% unless product.available %}disabled{% endunless %} style="flex:1;">
             {% if product.available %}{{ 'product.add_to_cart' | t }}{% else %}{{ 'product.sold_out' | t }}{% endif %}
           </button>
         </div>

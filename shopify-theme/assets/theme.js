@@ -55,14 +55,14 @@
         if (idInput) idInput.value = match.id;
         if (addBtn) {
           addBtn.disabled = !match.available;
-          addBtn.textContent = match.available ? 'Add to Cart' : 'Sold Out';
+          addBtn.textContent = match.available ? addBtn.dataset.labelAdd : addBtn.dataset.labelSoldOut;
         }
         if (price && typeof match.price === 'number') {
-          price.textContent = (match.price / 100).toLocaleString(undefined, { minimumFractionDigits: 2 });
+          price.textContent = '₪' + (match.price / 100).toLocaleString('en-US', { maximumFractionDigits: 2 });
         }
       } else if (addBtn) {
         addBtn.disabled = true;
-        addBtn.textContent = 'Unavailable';
+        addBtn.textContent = addBtn.dataset.labelUnavailable;
       }
       // highlight selected option buttons
       radios.forEach(function (r) {
