@@ -165,8 +165,17 @@
     "button": "Search"
   },
   "password": {
-    "enter": "Enter using password",
+    "enter": "Store owner? Enter",
     "label": "Password",
-    "submit": "Enter"
+    "submit": "Enter",
+    "title_html": "Coming<span>soon.</span>",
+    "title_plain": "Coming soon",
+    "lede": "Timeless basics, made to live in. Our online boutique opens its doors very soon.",
+    "signup_label": "Be the first to know",
+    "email_placeholder": "Your email address",
+    "signup_button": "Notify me",
+    "signup_success": "Thank you — you’re on the list. We’ll write to you the moment we open.",
+    "caption": "New Collection",
+    "image_alt": "Nina et Michelle ribbed tees in ivory and noir"
   }
 }
