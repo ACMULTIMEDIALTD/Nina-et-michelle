@@ -179,13 +179,14 @@
     "image_alt": "Nina et Michelle ribbed tees in ivory and noir"
   },
   "club": {
-    "label": "The Club",
-    "title_html": "10% off<br><em>your first order.</em>",
-    "text": "Join the Nina et Michelle club for first access to new collections, and get 10% off your first purchase.",
+    "aria": "Join the club",
+    "art_alt": "Nina et Michelle club: 10% off your first order. New drops, exclusive offers, early access.",
+    "join": "Join now",
+    "panel_title": "Join the club",
     "email": "Your email address",
     "submit": "Join & get 10%",
     "consent": "By joining you agree to receive updates and offers by email. You can unsubscribe at any time.",
-    "success_title": "Welcome to the club.",
+    "success_title": "Welcome to the club",
     "success_text": "Here is your 10% code for your first order. Enter it at checkout.",
     "success_note": "Valid once per customer.",
     "copy": "Copy",
