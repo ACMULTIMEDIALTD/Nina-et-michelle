@@ -68,6 +68,9 @@ def main():
     lines = ["| סוג | שפה | handle | כותרת | תקציר (Excerpt) | תגית | תאריך | תמונה |", "|---|---|---|---|---|---|---|---|"]
     lines += ["| " + " | ".join(c.replace("|", "\\|") for c in r) + " |" for r in rows]
     (OUT / "INDEX.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # The terms page renders this snippet (sections/main-terms.liquid).
+    terms = (OUT / "pages" / "terms.he.html").read_text(encoding="utf-8")
+    (ROOT / "shopify-theme" / "snippets" / "terms-content.liquid").write_text(terms, encoding="utf-8")
 
 
 if __name__ == "__main__":

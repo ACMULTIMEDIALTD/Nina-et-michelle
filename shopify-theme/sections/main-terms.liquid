@@ -1,0 +1,16 @@
+{%- comment -%}
+  Terms page. The legal text lives in snippets/terms-content.liquid (generated from
+  terms.html by tools/export_shopify_content.py) so it can be updated with the theme.
+{%- endcomment -%}
+<article>
+  <header class="article-hero">
+    <h1>{{ page.title }}</h1>
+  </header>
+  <div class="article-body">
+    {% render 'terms-content' %}
+  </div>
+</article>
+
+{% schema %}
+{ "name": "Terms", "settings": [] }
+{% endschema %}
