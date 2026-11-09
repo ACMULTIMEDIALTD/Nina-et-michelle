@@ -5,10 +5,10 @@
       <h1>{{ 'journal.title' | t }}</h1>
       <p class="intro-sub">{{ 'journal.subtitle' | t }}</p>
     </div>
-    <nav class="filter-tabs" aria-label="Journal categories">
+    <nav class="filter-tabs" aria-label="{{ 'journal.categories' | t }}">
       <a href="{{ blog.url }}" {% unless current_tags %}class="active"{% endunless %}>{{ 'journal.all' | t }}</a>
       {% for tag in blog.all_tags %}
-        <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}class="active"{% endif %}>{{ tag }}</a>
+        <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}class="active"{% endif %}>{% render 'tag-label', tag: tag %}</a>
       {% endfor %}
     </nav>
   </div>
@@ -21,8 +21,8 @@
         </a>
         <div class="fa-body">
           <div class="fa-meta">
-            {% if article.tags.size > 0 %}<span class="label muted">{{ article.tags.first }}</span>{% endif %}
-            <span class="label muted">{% if is_he %}{{ article.published_at | date: '%-d ב%B %Y' }}{% else %}{{ article.published_at | date: '%B %-d, %Y' }}{% endif %}</span>
+            {% if article.tags.size > 0 %}<span class="label muted">{% render 'tag-label', tag: article.tags.first %}</span>{% endif %}
+            <span class="label muted">{% render 'date', date: article.published_at %}</span>
           </div>
           <h2>{{ article.title }}</h2>
           <p>{{ article.excerpt_or_content | strip_html | truncate: 140 }}</p>
@@ -37,8 +37,8 @@
           <a href="{{ article.url }}" class="ag-card">
             <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
             <div class="ag-meta">
-              {% if article.tags.size > 0 %}<span class="label muted">{{ article.tags.first }}</span>{% endif %}
-              <span class="label muted">{% if is_he %}{{ article.published_at | date: '%-d ב%B %Y' }}{% else %}{{ article.published_at | date: '%B %-d, %Y' }}{% endif %}</span>
+              {% if article.tags.size > 0 %}<span class="label muted">{% render 'tag-label', tag: article.tags.first %}</span>{% endif %}
+              <span class="label muted">{% render 'date', date: article.published_at %}</span>
             </div>
             <h3>{{ article.title }}</h3>
             <span class="link-cta">{{ 'general.read_more' | t }} <span class="arrow">{{ 'general.arrow' | t }}</span></span>

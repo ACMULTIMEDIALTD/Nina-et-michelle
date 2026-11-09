@@ -1,0 +1,4 @@
+{%- comment -%} Journal tag in the visitor's language; unknown tags are shown as written. {%- endcomment -%}
+{%- capture key -%}journal.tags.{{ tag | handleize | replace: '-', '_' }}{%- endcapture -%}
+{%- assign label = key | t -%}
+{%- if label contains 'translation missing' or label contains 'Translation missing' -%}{{ tag }}{%- else -%}{{ label }}{%- endif -%}

@@ -771,7 +771,8 @@ html[lang="he"] .standfirst,
 html[lang="he"] .closing,
 html[lang="he"] .quote-band blockquote { font-style: normal; }
 html[lang="he"] .contact-block h3 { font-family: 'Assistant', sans-serif; letter-spacing: 0.08em; }
-html[lang="he"] .tile-content { margin-inline-start: auto; }
+html[lang="he"] .tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to left, rgba(242,238,230,.88) 0%, rgba(242,238,230,.6) 45%, rgba(242,238,230,0) 80%); pointer-events: none; }
+html[lang="he"] .tile-content { z-index: 1; }
 html[lang="he"] .size-table th { font-family: 'Assistant', sans-serif; }
 
 /* Hebrew typography: Latin words (product names, brand) stay in EB Garamond and

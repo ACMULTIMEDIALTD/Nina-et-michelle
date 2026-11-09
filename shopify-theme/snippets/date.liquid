@@ -1,0 +1,10 @@
+{%- comment -%} Article date: "28 ביולי 2025" in Hebrew, "July 28, 2025" in English. {%- endcomment -%}
+{%- if request.locale.iso_code == 'he' -%}
+  {%- assign months = 'general.months' | t | split: ',' -%}
+  {%- assign m = date | date: '%-m' | minus: 1 -%}
+  {{- date | date: '%-d' }} ב{{ months[m] }} {{ date | date: '%Y' -}}
+{%- elsif short -%}
+  {{- date | date: '%b %-d, %Y' -}}
+{%- else -%}
+  {{- date | date: '%B %-d, %Y' -}}
+{%- endif -%}

@@ -13,7 +13,7 @@
     <nav class="filter-tabs" aria-label="Collections">
       <a href="{{ routes.all_products_collection_url }}" {% if collection.handle == 'all' %}class="active"{% endif %}>{{ 'shop.all' | t }}</a>
       {% for c in collections %}
-        {% unless c.handle == 'all' or c.handle == 'frontpage' %}
+        {% unless c.handle == 'all' or c.handle == 'frontpage' or c.products_count == 0 %}
           <a href="{{ c.url }}" {% if c.handle == collection.handle %}class="active"{% endif %}>{{ c.title }}</a>
         {% endunless %}
       {% endfor %}

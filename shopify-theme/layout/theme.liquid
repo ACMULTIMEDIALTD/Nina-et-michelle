@@ -85,9 +85,9 @@
         <h5>{{ 'footer.shop' | t }}</h5>
         <ul>
           <li><a href="{{ routes.all_products_collection_url }}">{{ 'footer.all_products' | t }}</a></li>
-          <li><a href="{{ routes.collections_url }}/tops">{{ 'footer.tops' | t }}</a></li>
-          <li><a href="{{ routes.collections_url }}/bottoms">{{ 'footer.bottoms' | t }}</a></li>
-          <li><a href="{{ routes.collections_url }}/sets">{{ 'footer.sets' | t }}</a></li>
+          {% if collections['tops'].products_count > 0 %}<li><a href="{{ routes.collections_url }}/tops">{{ 'footer.tops' | t }}</a></li>{% endif %}
+          {% if collections['bottoms'].products_count > 0 %}<li><a href="{{ routes.collections_url }}/bottoms">{{ 'footer.bottoms' | t }}</a></li>{% endif %}
+          {% if collections['sets'].products_count > 0 %}<li><a href="{{ routes.collections_url }}/sets">{{ 'footer.sets' | t }}</a></li>{% endif %}
         </ul>
       </div>
       <div>

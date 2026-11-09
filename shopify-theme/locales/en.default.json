@@ -20,7 +20,8 @@
     "view_all": "View All",
     "next": "Next",
     "previous": "Previous",
-    "explore": "Explore"
+    "explore": "Explore",
+    "months": "January,February,March,April,May,June,July,August,September,October,November,December"
   },
   "nav": {
     "shop": "Shop",
@@ -57,10 +58,10 @@
     "tagline": "The Fine Art of Basics",
     "shop_collection": "Shop Collection",
     "tile1_label": "New Collection",
-    "tile1_heading": "Timeless pieces,<br>made to live in.",
+    "tile1_heading_html": "Timeless pieces,<br>made to live in.",
     "tile1_cta": "Discover Now",
     "tile2_label": "Our Materials",
-    "tile2_heading": "Quality you can feel.<br>Designed to last.",
+    "tile2_heading_html": "Quality you can feel.<br>Designed to last.",
     "tile2_cta": "Learn More",
     "journal_label": "Journal",
     "card_paris": "A Day in Paris",
@@ -89,7 +90,15 @@
     "title_paris": "Paris, Always",
     "title_intention": "Designed with Intention",
     "title_rituals": "Everyday Rituals",
-    "title_details": "The Details Matter"
+    "title_details": "The Details Matter",
+    "categories": "Journal categories",
+    "tags": {
+      "inspiration": "Inspiration",
+      "life": "Life",
+      "materials": "Materials",
+      "process": "Process",
+      "studio": "Studio"
+    }
   },
   "contact": {
     "title": "Contact",
@@ -114,7 +123,7 @@
   },
   "about": {
     "label": "Our Story",
-    "heading": "We don’t design for the season.<br>We design for the years in between.",
+    "heading_html": "We don’t design for the season.<br>We design for the years in between.",
     "s1_heading": "The Fine Art of Basics",
     "s1_p1": "Nina et Michelle was born from a simple idea: that the pieces you wear every day deserve the most care, not the least.",
     "s1_p2": "From the first sketch to the final stitch, every detail is considered. We take our time selecting fabrics, perfecting silhouettes, and creating garments that feel effortless to wear.",

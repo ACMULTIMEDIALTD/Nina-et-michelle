@@ -2,8 +2,8 @@
 <article>
   <header class="article-hero">
     <div class="ah-meta">
-      {% if article.tags.size > 0 %}<span class="label muted">{{ article.tags.first }}</span>{% endif %}
-      <span class="label muted">{% if is_he %}{{ article.published_at | date: '%-d ב%B %Y' }}{% else %}{{ article.published_at | date: '%B %-d, %Y' }}{% endif %}</span>
+      {% if article.tags.size > 0 %}<span class="label muted">{% render 'tag-label', tag: article.tags.first %}</span>{% endif %}
+      <span class="label muted">{% render 'date', date: article.published_at %}</span>
     </div>
     <h1>{{ article.title }}</h1>
     {% if article.excerpt != blank %}<p class="standfirst">{{ article.excerpt | strip_html }}</p>{% endif %}

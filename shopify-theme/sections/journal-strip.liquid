@@ -21,7 +21,7 @@
           <a href="{{ article.url }}" class="j-card">
             <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
             <h3>{{ strip_titles[forloop.index0] }}</h3>
-            <p class="j-date">{% if request.locale.iso_code == 'he' %}{{ article.published_at | date: '%-d ב%B %Y' }}{% else %}{{ article.published_at | date: '%b %-d, %Y' }}{% endif %}</p>
+            <p class="j-date">{% render 'date', date: article.published_at, short: true %}</p>
           </a>
         {% endif %}
       {% endfor %}
@@ -31,7 +31,7 @@
             <a href="{{ article.url }}" class="j-card">
               <div class="j-img">{% if article.image %}{{ article.image | image_url: width: 800 | image_tag: alt: article.title }}{% endif %}</div>
               <h3>{{ article.title }}</h3>
-              <p class="j-date">{% if request.locale.iso_code == 'he' %}{{ article.published_at | date: '%-d ב%B %Y' }}{% else %}{{ article.published_at | date: '%b %-d, %Y' }}{% endif %}</p>
+              <p class="j-date">{% render 'date', date: article.published_at, short: true %}</p>
             </a>
           {% endfor %}
         {% endif %}
