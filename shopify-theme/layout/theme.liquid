@@ -51,6 +51,9 @@
 
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
     <button class="nav-close" id="navClose" aria-label="{{ 'general.menu_close' | t }}">✕</button>
+    <div class="mobile-nav-inner">
+    <a href="{{ routes.root_url }}" class="logo mobile-nav-logo">{{ shop.name }}</a>
+    <span class="mobile-nav-rule" aria-hidden="true"></span>
     <ul>
       <li><a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a></li>
       <li><a href="{{ routes.collections_url }}">{{ 'nav.collections' | t }}</a></li>
@@ -69,6 +72,7 @@
         </li>
       {% endif %}
     </ul>
+    </div>
   </nav>
 
   <main>
