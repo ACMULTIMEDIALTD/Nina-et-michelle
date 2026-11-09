@@ -1,0 +1,94 @@
+{%- comment -%}
+  Club sign-up popup: 10% off the first purchase. Opens once per visitor (localStorage),
+  a few seconds after the first page view. Sign-ups become customers tagged "club".
+  The code itself is the WELCOME10 discount in Shopify admin (once per customer).
+{%- endcomment -%}
+{%- form 'customer', id: 'ClubForm', class: 'club-form' -%}
+  {%- assign club_posted = form.posted_successfully? -%}
+  <div class="club" id="Club" role="dialog" aria-modal="true" aria-labelledby="ClubTitle"{% if club_posted or form.errors %} data-open="now"{% endif %} hidden>
+    <div class="club-backdrop" data-club-close></div>
+    <div class="club-card">
+      <button type="button" class="club-x" data-club-close aria-label="{{ 'club.close' | t }}">&times;</button>
+      <div class="club-media"><img src="{{ 'new-collection.jpg' | asset_url }}" width="1254" height="1254" alt="" loading="lazy"></div>
+      <div class="club-body">
+        <span class="label muted">Nina et Michelle · {{ 'club.label' | t }}</span>
+        {%- if club_posted -%}
+          <h2 id="ClubTitle" class="club-title">{{ 'club.success_title' | t }}</h2>
+          <p class="club-text">{{ 'club.success_text' | t }}</p>
+          <div class="club-code">
+            <span id="ClubCode">WELCOME10</span>
+            <button type="button" class="club-copy" data-club-copy data-done="{{ 'club.copied' | t }}">{{ 'club.copy' | t }}</button>
+          </div>
+          <p class="club-small">{{ 'club.success_note' | t }}</p>
+        {%- else -%}
+          <h2 id="ClubTitle" class="club-title">{{ 'club.title_html' | t }}</h2>
+          <p class="club-text">{{ 'club.text' | t }}</p>
+          <input type="hidden" name="contact[tags]" value="newsletter, club">
+          <div class="club-field">
+            <input id="ClubEmail" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ 'club.email' | t }}" aria-label="{{ 'club.email' | t }}">
+            <button type="submit" class="btn btn-dark">{{ 'club.submit' | t }}</button>
+          </div>
+          {%- if form.errors -%}<p class="club-small club-err">{{ form.errors | default_errors }}</p>{%- endif -%}
+          <p class="club-small">{{ 'club.consent' | t }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endform -%}
+
+<style>
+  .club { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 16px; }
+  .club[hidden] { display: none; }
+  .club-backdrop { position: absolute; inset: 0; background: rgba(25,25,25,.45); animation: club-fade .4s ease both; }
+  .club-card { position: relative; display: grid; grid-template-columns: 1fr 1.1fr; width: min(820px, 100%); max-height: calc(100vh - 32px); overflow: auto; background: var(--cream); color: var(--ink); animation: club-rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  .club-media { position: relative; min-height: 100%; background: #d9d0c0; }
+  .club-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .club-body { padding: 48px 40px 40px; display: flex; flex-direction: column; gap: 16px; }
+  .club-title { font-size: clamp(34px, 4.6vw, 48px); line-height: 1.05; font-weight: 400; margin: 6px 0 2px; }
+  .club-title em { font-style: italic; }
+  .club-text { font-size: 17px; color: var(--ink-soft); }
+  .club-field { display: grid; gap: 10px; margin-top: 6px; }
+  .club-field input { width: 100%; padding: 14px 0; border: none; border-bottom: 1px solid var(--ink); background: transparent; font-family: inherit; font-size: 17px; color: var(--ink); outline: none; }
+  .club-field input::placeholder { color: var(--muted); }
+  .club-field .btn { width: 100%; padding: 15px 20px; }
+  .club-small { font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+  .club-err { color: #9a3b3b; }
+  .club-code { display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px dashed var(--ink); padding: 14px 16px; }
+  .club-code span { font-size: 22px; letter-spacing: .18em; }
+  .club-copy { background: var(--ink); color: var(--cream); border: none; padding: 9px 14px; cursor: pointer; font-family: inherit; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+  .club-x { position: absolute; top: 10px; inset-inline-end: 14px; z-index: 1; background: none; border: none; font-size: 28px; line-height: 1; cursor: pointer; color: var(--ink); }
+  .club-x:focus-visible, .club-copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  @keyframes club-fade { from { opacity: 0; } }
+  @keyframes club-rise { from { opacity: 0; transform: translateY(16px); } }
+  @media (prefers-reduced-motion: reduce) { .club-backdrop, .club-card { animation: none; } }
+  @media (max-width: 680px) {
+    .club-card { grid-template-columns: 1fr; }
+    .club-media { min-height: 0; height: 170px; }
+    .club-body { padding: 28px 22px 24px; }
+  }
+  html[lang="he"] .club-title { font-family: 'Frank Ruhl Libre', serif; font-weight: 300; }
+  html[lang="he"] .club-title em { font-style: normal; }
+  html[lang="he"] .club-copy { font-family: 'Assistant', sans-serif; font-size: 13px; letter-spacing: .04em; }
+</style>
+
+<script>
+  (function () {
+    var club = document.getElementById('Club');
+    if (!club) return;
+    var KEY = 'nm_club_seen';
+    function seen() { try { return localStorage.getItem(KEY); } catch (e) { return '1'; } }
+    function remember() { try { localStorage.setItem(KEY, '1'); } catch (e) {} }
+    function open() { club.hidden = false; var f = club.querySelector('input[type=email], .club-copy'); if (f) f.focus(); }
+    function close() { club.hidden = true; remember(); }
+    club.querySelectorAll('[data-club-close]').forEach(function (el) { el.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !club.hidden) close(); });
+    var copy = club.querySelector('[data-club-copy]');
+    if (copy) copy.addEventListener('click', function () {
+      var code = document.getElementById('ClubCode').textContent;
+      var done = function () { copy.textContent = copy.getAttribute('data-done') || '✓'; };
+      if (navigator.clipboard) navigator.clipboard.writeText(code).then(done, function () {});
+    });
+    if (club.getAttribute('data-open') === 'now') { remember(); open(); return; }
+    if (!seen()) setTimeout(function () { if (!seen()) { remember(); open(); } }, 4000);
+  })();
+</script>
