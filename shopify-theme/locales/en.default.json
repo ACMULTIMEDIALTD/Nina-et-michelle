@@ -167,7 +167,7 @@
     "agree_error": "Please confirm the Terms of Use and Privacy Policy before checkout.",
     "checkout_language": "Checkout language:",
     "note_free": "This order ships free · prices include VAT",
-    "note_remaining": "{{ amount }} away from free shipping · prices include VAT"
+    "note_remaining": "Shipping ₪39 · {{ amount }} away from free shipping · prices include VAT"
   },
   "search": {
     "title": "Search",
