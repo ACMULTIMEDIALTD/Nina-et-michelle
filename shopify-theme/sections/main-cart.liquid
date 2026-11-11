@@ -45,6 +45,14 @@
           </label>
           <p id="AgreeError" style="display:none; color:#9a3b3b; font-size:13px; margin-bottom:14px;">{{ 'cart.agree_error' | t }}</p>
           <button type="submit" name="checkout" id="CheckoutBtn" class="btn btn-dark">{{ 'cart.checkout' | t }}</button>
+          {%- if localization.available_languages.size > 1 -%}
+            <p class="cart-lang">
+              <span>{{ 'cart.checkout_language' | t }}</span>
+              {%- for language in localization.available_languages -%}
+                <button type="submit" form="CartLangForm" name="locale_code" value="{{ language.iso_code }}" lang="{{ language.iso_code }}"{% if language.iso_code == request.locale.iso_code %} class="is-current" aria-current="true"{% endif %}>{% if language.iso_code == 'he' %}עברית{% else %}English{% endif %}</button>
+              {%- endfor -%}
+            </p>
+          {%- endif -%}
           <script>
             (function () {
               var btn = document.getElementById('CheckoutBtn');
@@ -70,6 +78,9 @@
         </div>
       </div>
     </form>
+    {%- if localization.available_languages.size > 1 -%}
+      {%- form 'localization', id: 'CartLangForm' -%}{%- endform -%}
+    {%- endif -%}
   {% endif %}
 </div>
 

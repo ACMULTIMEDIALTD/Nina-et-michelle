@@ -165,7 +165,8 @@
     "note": "משלוח חינם · מסים מחושבים בקופה",
     "checkout": "לתשלום",
     "agree_html": "קראתי ואני מאשר/ת את <a href=\"{{ root }}/pages/terms\" style=\"border-bottom:1px solid currentColor;\">תנאי השימוש</a> ואת <a href=\"{{ root }}/pages/privacy\" style=\"border-bottom:1px solid currentColor;\">מדיניות הפרטיות</a>.",
-    "agree_error": "יש לאשר את תנאי השימוש ומדיניות הפרטיות לפני התשלום."
+    "agree_error": "יש לאשר את תנאי השימוש ומדיניות הפרטיות לפני התשלום.",
+    "checkout_language": "שפת התשלום:"
   },
   "search": {
     "title": "חיפוש",

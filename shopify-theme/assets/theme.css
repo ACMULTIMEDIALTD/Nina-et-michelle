@@ -797,3 +797,10 @@ html[lang="he"] .btn { font-size: 13px; letter-spacing: 0.04em; }
 /* ---------- Legal docs ---------- */
 .article-body .num { font-weight: 600; margin-inline-end: 6px; }
 .article-body p.sub { margin-inline-start: 28px; }
+
+/* ---------- Cart: checkout language ---------- */
+.cart-lang { display: flex; justify-content: flex-end; align-items: center; gap: 14px; margin-top: 16px; font-size: 13px; color: var(--muted); }
+.cart-lang button { background: none; border: none; border-bottom: 1px solid transparent; padding: 0 0 2px; cursor: pointer; font-family: inherit; font-size: 13px; color: var(--muted); }
+.cart-lang button:hover, .cart-lang button.is-current { color: var(--ink); border-bottom-color: var(--ink); }
+.cart-lang button[lang="en"] { font-family: 'EB Garamond', serif; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; }
+.cart-lang button[lang="he"] { font-family: 'Assistant', sans-serif; }
