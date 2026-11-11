@@ -43,7 +43,8 @@
             {%- if cart.total_price >= free_shipping_from -%}
               {{ 'cart.note_free' | t }}
             {%- else -%}
-              {%- capture remaining -%}{% render 'price', amount: free_shipping_from | minus: cart.total_price %}{%- endcapture -%}
+              {%- assign remaining_amount = free_shipping_from | minus: cart.total_price -%}
+              {%- capture remaining -%}{% render 'price', amount: remaining_amount %}{%- endcapture -%}
               {{ 'cart.note_remaining' | t: amount: remaining }}
             {%- endif -%}
           </p>
