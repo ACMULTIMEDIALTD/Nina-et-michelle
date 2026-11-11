@@ -162,11 +162,12 @@
     "continue": "continue shopping",
     "update": "Update Cart",
     "subtotal": "Subtotal:",
-    "note": "Complimentary shipping · taxes calculated at checkout",
     "checkout": "Checkout",
     "agree_html": "I have read and agree to the <a href=\"{{ root }}/pages/terms\" style=\"border-bottom:1px solid currentColor;\">Terms of Use</a> and the <a href=\"{{ root }}/pages/privacy\" style=\"border-bottom:1px solid currentColor;\">Privacy Policy</a>.",
     "agree_error": "Please confirm the Terms of Use and Privacy Policy before checkout.",
-    "checkout_language": "Checkout language:"
+    "checkout_language": "Checkout language:",
+    "note_free": "This order ships free · prices include VAT",
+    "note_remaining": "{{ amount }} away from free shipping · prices include VAT"
   },
   "search": {
     "title": "Search",

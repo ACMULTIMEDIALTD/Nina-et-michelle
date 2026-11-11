@@ -162,11 +162,12 @@
     "continue": "להמשך קניות",
     "update": "עדכון סל",
     "subtotal": "סה\"כ ביניים:",
-    "note": "משלוח חינם · מסים מחושבים בקופה",
     "checkout": "לתשלום",
     "agree_html": "קראתי ואני מאשר/ת את <a href=\"{{ root }}/pages/terms\" style=\"border-bottom:1px solid currentColor;\">תנאי השימוש</a> ואת <a href=\"{{ root }}/pages/privacy\" style=\"border-bottom:1px solid currentColor;\">מדיניות הפרטיות</a>.",
     "agree_error": "יש לאשר את תנאי השימוש ומדיניות הפרטיות לפני התשלום.",
-    "checkout_language": "שפת התשלום:"
+    "checkout_language": "שפת התשלום:",
+    "note_free": "משלוח חינם להזמנה הזו · המחירים כוללים מע״מ",
+    "note_remaining": "עוד {{ amount }} למשלוח חינם · המחירים כוללים מע״מ"
   },
   "search": {
     "title": "חיפוש",

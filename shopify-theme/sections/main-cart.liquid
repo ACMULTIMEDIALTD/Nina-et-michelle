@@ -38,7 +38,15 @@
         <button type="submit" name="update" class="link-cta" style="background:none;border-top:none;border-inline:none;cursor:pointer;">{{ 'cart.update' | t }}</button>
         <div style="text-align:end;">
           <p style="font-size:22px; margin-bottom:6px;">{{ 'cart.subtotal' | t }} {% render 'price', amount: cart.total_price %}</p>
-          <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">{{ 'cart.note' | t }}</p>
+          {%- assign free_shipping_from = 50000 -%}
+          <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">
+            {%- if cart.total_price >= free_shipping_from -%}
+              {{ 'cart.note_free' | t }}
+            {%- else -%}
+              {%- capture remaining -%}{% render 'price', amount: free_shipping_from | minus: cart.total_price %}{%- endcapture -%}
+              {{ 'cart.note_remaining' | t: amount: remaining }}
+            {%- endif -%}
+          </p>
           <label id="AgreeWrap" style="display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:18px; cursor:pointer; max-width:420px; margin-inline-start:auto; text-align:start;">
             <input type="checkbox" id="AgreeTerms" style="margin-top:4px; accent-color:var(--ink); width:16px; height:16px; flex-shrink:0;">
             <span>{{ 'cart.agree_html' | t: root: root }}</span>
