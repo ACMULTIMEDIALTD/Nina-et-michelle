@@ -107,7 +107,7 @@
     "whatsapp": "WhatsApp",
     "whatsapp_text": "Customer service:",
     "shipping": "Shipping",
-    "shipping_text": "Complimentary shipping on orders over ₪500. Delivery within up to 7 business days.",
+    "shipping_text": "Complimentary shipping on orders over ₪500. Delivery within up to 7 business days, or free self pickup from our Rehovot studio.",
     "full_details": "Full details",
     "returns": "Returns",
     "returns_text": "Easy returns and exchanges within 14 days, in original condition.",
@@ -151,7 +151,7 @@
     "size_guide": "Size Guide",
     "size_guide_html": "Find your fit in our <a href=\"{{ root }}/pages/size-guide\" style=\"border-bottom:1px solid currentColor;\">size guide</a>. Between sizes? We recommend sizing up for a relaxed fit.",
     "shipping": "Shipping",
-    "shipping_text": "Complimentary shipping on orders over ₪500. Delivery within up to 7 business days.",
+    "shipping_text": "Complimentary shipping on orders over ₪500. Delivery within up to 7 business days, or free self pickup from our Rehovot studio (ready within 2–4 business days).",
     "returns": "Returns",
     "returns_text": "Returns and exchanges within 14 days, in original condition with tags attached. Return shipping is deducted from the refund.",
     "unavailable": "Unavailable"
