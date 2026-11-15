@@ -1,0 +1,96 @@
+{%- comment -%}
+  Accessibility menu: a floating button (opposite the WhatsApp button) that opens a panel of
+  display adjustments. Choices are kept per visitor in localStorage and applied as classes on <html>.
+{%- endcomment -%}
+<button type="button" class="a11y-toggle" id="A11yToggle" aria-expanded="false" aria-controls="A11yPanel" aria-label="{{ 'a11y.open' | t }}">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M20 8.5c0 .6-.4 1-1 1.1l-4.5.6V13l1.9 7.2a1 1 0 0 1-1.9.5L12.6 15h-1.2l-1.9 5.7a1 1 0 0 1-1.9-.5L9.5 13v-2.8L5 9.6a1 1 0 0 1 .3-2l5.2.6h3l5.2-.6a1 1 0 0 1 1.3.9z"/></svg>
+</button>
+
+<div class="a11y-panel" id="A11yPanel" role="dialog" aria-modal="false" aria-labelledby="A11yTitle" hidden>
+  <div class="a11y-head">
+    <h2 id="A11yTitle">{{ 'a11y.title' | t }}</h2>
+    <button type="button" class="a11y-close" data-a11y-close aria-label="{{ 'a11y.close' | t }}">&times;</button>
+  </div>
+  <div class="a11y-size" role="group" aria-label="{{ 'a11y.text_size' | t }}">
+    <span>{{ 'a11y.text_size' | t }}</span>
+    <button type="button" data-a11y-size="-1" aria-label="{{ 'a11y.smaller' | t }}">A−</button>
+    <button type="button" data-a11y-size="1" aria-label="{{ 'a11y.larger' | t }}">A+</button>
+  </div>
+  <div class="a11y-options">
+    <button type="button" data-a11y="contrast" aria-pressed="false">{{ 'a11y.contrast' | t }}</button>
+    <button type="button" data-a11y="gray" aria-pressed="false">{{ 'a11y.grayscale' | t }}</button>
+    <button type="button" data-a11y="links" aria-pressed="false">{{ 'a11y.links' | t }}</button>
+    <button type="button" data-a11y="font" aria-pressed="false">{{ 'a11y.font' | t }}</button>
+    <button type="button" data-a11y="still" aria-pressed="false">{{ 'a11y.animations' | t }}</button>
+    <button type="button" data-a11y="focus" aria-pressed="false">{{ 'a11y.focus' | t }}</button>
+  </div>
+  <div class="a11y-foot">
+    <button type="button" data-a11y-reset>{{ 'a11y.reset' | t }}</button>
+    <a href="{{ routes.root_url | append: '/pages/accessibility' | replace: '//', '/' }}">{{ 'a11y.statement' | t }}</a>
+  </div>
+</div>
+
+<style>
+  .a11y-toggle { position: fixed; bottom: 22px; inset-inline-start: 22px; z-index: 150; width: 52px; height: 52px; border-radius: 50%; border: none; background: var(--ink); color: var(--cream); display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.18); transition: transform .2s; }
+  .a11y-toggle:hover { transform: scale(1.07); }
+  .a11y-toggle:focus-visible, .a11y-panel button:focus-visible, .a11y-panel a:focus-visible { outline: 3px solid #c9a14a; outline-offset: 2px; }
+  .a11y-toggle svg { width: 28px; height: 28px; fill: currentColor; }
+  .a11y-panel { position: fixed; bottom: 86px; inset-inline-start: 22px; z-index: 160; width: min(320px, calc(100vw - 44px)); max-height: calc(100vh - 110px); overflow: auto; background: #fff; color: #191919; border: 1px solid #191919; box-shadow: 0 18px 50px rgba(0,0,0,.2); padding: 18px; font-family: 'Assistant', Arial, sans-serif; font-size: 15px; }
+  .a11y-panel[hidden] { display: none; }
+  .a11y-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .a11y-head h2 { font-size: 18px; font-weight: 600; font-family: inherit; }
+  .a11y-close { background: none; border: none; font-size: 26px; line-height: 1; cursor: pointer; color: inherit; }
+  .a11y-size { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; margin-bottom: 12px; }
+  .a11y-panel button[data-a11y-size], .a11y-options button, .a11y-foot button { font-family: inherit; font-size: 15px; color: #191919; background: #f4f1ea; border: 1px solid #d8d2c5; padding: 10px 12px; cursor: pointer; text-align: center; }
+  .a11y-panel button[data-a11y-size] { min-width: 52px; font-weight: 600; }
+  .a11y-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .a11y-options button[aria-pressed="true"] { background: #191919; color: #fff; border-color: #191919; }
+  .a11y-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px; }
+  .a11y-foot a { text-decoration: underline; color: #191919; }
+
+  html.a11y-z1 body { zoom: 1.12; }
+  html.a11y-z2 body { zoom: 1.25; }
+  html.a11y-z3 body { zoom: 1.4; }
+  html.a11y-zm1 body { zoom: .9; }
+  html.a11y-contrast { --cream: #ffffff; --cream-deep: #ffffff; --ink: #000000; --ink-soft: #000000; --muted: #222222; --hairline: #000000; }
+  html.a11y-contrast body { background: #fff; color: #000; }
+  html.a11y-contrast .topbar, html.a11y-contrast .quote-band { background: #000; color: #fff; }
+  html.a11y-gray { filter: grayscale(1); }
+  html.a11y-links a { text-decoration: underline !important; text-underline-offset: 3px; }
+  html.a11y-font body, html.a11y-font body *:not(svg):not(path) { font-family: Arial, 'Assistant', sans-serif !important; letter-spacing: normal !important; font-style: normal !important; }
+  html.a11y-still *, html.a11y-still *::before, html.a11y-still *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  html.a11y-focus :focus { outline: 3px solid #c9a14a !important; outline-offset: 2px !important; }
+</style>
+
+<script>
+  (function () {
+    var KEY = 'nm_a11y', root = document.documentElement;
+    var toggle = document.getElementById('A11yToggle'), panel = document.getElementById('A11yPanel');
+    if (!toggle || !panel) return;
+    var state = {};
+    try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+    function apply() {
+      ['a11y-z1', 'a11y-z2', 'a11y-z3', 'a11y-zm1'].forEach(function (c) { root.classList.remove(c); });
+      var z = state.size || 0;
+      if (z > 0) root.classList.add('a11y-z' + z); else if (z < 0) root.classList.add('a11y-zm1');
+      panel.querySelectorAll('[data-a11y]').forEach(function (b) {
+        var k = b.getAttribute('data-a11y'), on = !!state[k];
+        root.classList.toggle('a11y-' + k, on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+    function open(v) { panel.hidden = !v; toggle.setAttribute('aria-expanded', v ? 'true' : 'false'); if (v) panel.querySelector('button').focus(); else toggle.focus(); }
+    toggle.addEventListener('click', function () { open(panel.hidden); });
+    panel.querySelector('[data-a11y-close]').addEventListener('click', function () { open(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) open(false); });
+    panel.querySelectorAll('[data-a11y-size]').forEach(function (b) {
+      b.addEventListener('click', function () { state.size = Math.max(-1, Math.min(3, (state.size || 0) + parseInt(b.getAttribute('data-a11y-size'), 10))); save(); apply(); });
+    });
+    panel.querySelectorAll('[data-a11y]').forEach(function (b) {
+      b.addEventListener('click', function () { var k = b.getAttribute('data-a11y'); state[k] = !state[k]; save(); apply(); });
+    });
+    panel.querySelector('[data-a11y-reset]').addEventListener('click', function () { state = {}; save(); apply(); });
+    apply();
+  })();
+</script>

@@ -203,5 +203,21 @@
     "copy": "Copy",
     "copied": "Copied",
     "close": "Close"
+  },
+  "a11y": {
+    "open": "Accessibility menu",
+    "title": "Accessibility",
+    "close": "Close",
+    "text_size": "Text size",
+    "smaller": "Smaller text",
+    "larger": "Larger text",
+    "contrast": "High contrast",
+    "grayscale": "Grayscale",
+    "links": "Underline links",
+    "font": "Readable font",
+    "animations": "Stop animations",
+    "focus": "Highlight focus",
+    "reset": "Reset",
+    "statement": "Accessibility statement"
   }
 }
